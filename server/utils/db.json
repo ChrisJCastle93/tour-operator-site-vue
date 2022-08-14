@@ -1,0 +1,55 @@
+{
+    "events": [
+        {
+            "id": 1,
+            "title": "Rome Street Food Tour",
+            "images": ["https://cdn.getyourguide.com/img/tour/c62d95892f972231.jpeg/98.jpg"],
+            "summary": "Experience the flavors of Rome on a guided street food tour. Taste your way through the iconic Jewish Quarter or opt for a tour of Trastevere. Try local delicacies such as supplì, pizza, and gelato.",
+            "price": "42.75",
+            "duration": "2.5",
+            "freeCancellation": true,
+            "highlights": [
+                "Experience the flavors of the 'Eternal City' on a street food tour in Rome",
+                "Indulge in street delicacies, such as supplì, cured meats, and traditional pizza",
+                "Explore one of two historical districts, Trastevere or the Jewish Quarter",
+                "Follow your guide through the historic center’s charming squares and shops",
+                "Finish your foodie adventure on a sweet note with the perfect Roman gelato"
+            ],
+            "fullDescription": "Tuck into Rome's iconic street food on a guided walking tour of the Jewish Quarter or Trastevere. Learn about local food with five tastings and try delicacies, such as pizza, supplì, and seasonal dishes.\n\nChoose between a tour of Trastevere or a tour of the Jewish Quarter, two of Rome's most picturesque districts with group and private tour options available. With your guide, learn about Rome’s history through its most beloved street food.\n\nIf you've chosen the Trastevere tour, meet your guide on Tiber Island and soak up its unique atmosphere before entering Trastevere. Step into vibrant squares, such as Piazza Santa Maria, and indulge in popular street food, from cheesy supplì to delicious cannoli.\n\nIf you've chosen the tour of the Jewish Quarter, head to the lively Campo De' Fiori square where one of the oldest open-air markets takes place every morning.\n\nThen, follow your guide to Rome's Jewish Quarter and see highlights, including the Portico of Octavia and the Turtle Fountain.\n\nThroughout both tours, enjoy five tastings with some wine and beer. Finally, make your way to an ice cream shop for a much-deserved treat. Both tours finish on a sweet note with the perfect Italian gelato."
+        },
+        {
+            "id": 2,
+            "title": "Rome Street Food Tour #2",
+            "images": ["https://cdn.getyourguide.com/img/tour/c62d95892f972231.jpeg/98.jpg"],
+            "summary": "Experience the flavors of Rome on a guided street food tour. Taste your way through the iconic Jewish Quarter or opt for a tour of Trastevere. Try local delicacies such as supplì, pizza, and gelato.",
+            "price": "42.75",
+            "duration": "2.5",
+            "freeCancellation": true,
+            "highlights": [
+                "Experience the flavors of the 'Eternal City' on a street food tour in Rome",
+                "Indulge in street delicacies, such as supplì, cured meats, and traditional pizza",
+                "Explore one of two historical districts, Trastevere or the Jewish Quarter",
+                "Follow your guide through the historic center’s charming squares and shops",
+                "Finish your foodie adventure on a sweet note with the perfect Roman gelato"
+            ],
+            "fullDescription": "Tuck into Rome's iconic street food on a guided walking tour of the Jewish Quarter or Trastevere. Learn about local food with five tastings and try delicacies, such as pizza, supplì, and seasonal dishes.\nChoose between a tour of Trastevere or a tour of the Jewish Quarter, two of Rome's most picturesque districts with group and private tour options available. With your guide, learn about Rome’s history through its most beloved street food.\nIf you've chosen the Trastevere tour, meet your guide on Tiber Island and soak up its unique atmosphere before entering Trastevere. Step into vibrant squares, such as Piazza Santa Maria, and indulge in popular street food, from cheesy supplì to delicious cannoli.\nIf you've chosen the tour of the Jewish Quarter, head to the lively Campo De' Fiori square where one of the oldest open-air markets takes place every morning.\nThen, follow your guide to Rome's Jewish Quarter and see highlights, including the Portico of Octavia and the Turtle Fountain.\nThroughout both tours, enjoy five tastings with some wine and beer. Finally, make your way to an ice cream shop for a much-deserved treat. Both tours finish on a sweet note with the perfect Italian gelato."
+        },
+        {
+            "id": 3,
+            "title": "Rome Street Food Tour #3",
+            "images": ["https://cdn.getyourguide.com/img/tour/c62d95892f972231.jpeg/98.jpg"],
+            "summary": "Experience the flavors of Rome on a guided street food tour. Taste your way through the iconic Jewish Quarter or opt for a tour of Trastevere. Try local delicacies such as supplì, pizza, and gelato.",
+            "price": "42.75",
+            "duration": "2.5",
+            "freeCancellation": true,
+            "highlights": [
+                "Experience the flavors of the 'Eternal City' on a street food tour in Rome",
+                "Indulge in street delicacies, such as supplì, cured meats, and traditional pizza",
+                "Explore one of two historical districts, Trastevere or the Jewish Quarter",
+                "Follow your guide through the historic center’s charming squares and shops",
+                "Finish your foodie adventure on a sweet note with the perfect Roman gelato"
+            ],
+            "fullDescription": "Tuck into Rome's iconic street food on a guided walking tour of the Jewish Quarter or Trastevere. Learn about local food with five tastings and try delicacies, such as pizza, supplì, and seasonal dishes.\nChoose between a tour of Trastevere or a tour of the Jewish Quarter, two of Rome's most picturesque districts with group and private tour options available. With your guide, learn about Rome’s history through its most beloved street food.\nIf you've chosen the Trastevere tour, meet your guide on Tiber Island and soak up its unique atmosphere before entering Trastevere. Step into vibrant squares, such as Piazza Santa Maria, and indulge in popular street food, from cheesy supplì to delicious cannoli.\nIf you've chosen the tour of the Jewish Quarter, head to the lively Campo De' Fiori square where one of the oldest open-air markets takes place every morning.\nThen, follow your guide to Rome's Jewish Quarter and see highlights, including the Portico of Octavia and the Turtle Fountain.\nThroughout both tours, enjoy five tastings with some wine and beer. Finally, make your way to an ice cream shop for a much-deserved treat. Both tours finish on a sweet note with the perfect Italian gelato."
+        }
+    ]   
+}
