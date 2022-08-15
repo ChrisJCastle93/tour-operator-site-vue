@@ -6,6 +6,8 @@ export default createStore({
   state: {
     tours: [],
     selectedTour: '',
+    searchInput: '',
+    testString: 'hello',
   },
   getters: {},
   mutations: {
@@ -14,6 +16,9 @@ export default createStore({
     },
     SET_SELECTEDTOUR(state, selectedTour) {
       state.selectedTour = selectedTour;
+    },
+    SET_SEARCHINPUT(state, searchInput) {
+      state.searchInput = searchInput;
     },
   },
   actions: {
@@ -34,6 +39,9 @@ export default createStore({
         .catch((error) => {
           throw error;
         });
+    },
+    updateSearchInput({ commit }, searchInput) {
+      commit('SET_SEARCHINPUT', searchInput);
     },
   },
   modules: {},
