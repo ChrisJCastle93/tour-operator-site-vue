@@ -7,7 +7,6 @@ export default createStore({
     tours: [],
     selectedTour: '',
     searchInput: '',
-    testString: 'hello',
   },
   getters: {},
   mutations: {

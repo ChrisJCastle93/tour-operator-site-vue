@@ -1,10 +1,26 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <div>
+    <nav>
+      <n-image
+        height="50"
+        src="https://cdn.ventrata.com/image/upload/s--eqruQi84--/b_transparent,c_pad,g_west,h_90,w_540/v1652707045/zk9fm987mb5dmwf6r7pm.png"
+      />
+      <NavBar />
+    </nav>
+    <router-view />
+  </div>
 </template>
+<script>
+import NavBar from '@/components/NavBar.vue';
+import { NImage } from 'naive-ui';
+
+export default {
+  components: {
+    NavBar,
+    NImage,
+  },
+};
+</script>
 
 <style>
 #app {
@@ -17,6 +33,8 @@
 
 nav {
   padding: 30px;
+  display: flex;
+  justify-content: space-between;
 }
 
 nav a {

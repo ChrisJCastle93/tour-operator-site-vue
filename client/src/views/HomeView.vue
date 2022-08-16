@@ -1,34 +1,63 @@
 <template>
   <div class="home">
-    <SearchInput />
+    <div id="header">
+      <h1>Unforgettable<br>experiences.</h1>
+      <SearchInput />
+    </div>
     <div id="container">
-      <!-- <TourCard v-for="tour in tours" :key="tour.id" :tour="tour" /> -->
       <TourCard v-for="tour in filteredTours" :key="tour.id" :tour="tour" />
+    </div>
+    <UspCard></UspCard>
+    <div>
+
     </div>
   </div>
 </template>
 
 <style scoped>
 
-.home {
-  width: 90%;
-  margin: auto;
+h1 {
+  color: white;
+  line-height: 1em;
+  font-size: 5em;
+  font-weight:bold;
+  filter: drop-shadow(2px 2px 0.2rem black);
 }
 
 #container {
-  display: flex;
+  padding: 50px;
+  display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+#header {
+  background-image: url('https://cdn.ventrata.com/image/upload/s--Fm46deUd--/ar_3,c_fill,dpr_2.0,q_auto,w_1500/v1654739183/gosqgnbz6p9mz1jbf2xv.jpg');
+    background-repeat: no-repeat;
+    background-position: left;
+    background-size: cover;
+    position: relative;
+    height: 400px;
+    padding: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 4px solid red;
 }
 </style>
 
 <script>
 import TourCard from '../components/TourCard.vue';
 import SearchInput from '../components/SearchInput.vue';
+import UspCard from '../components/UspCard.vue';
 
 export default {
   name: 'HomeView',
   components: {
     TourCard,
     SearchInput,
+    UspCard,
   },
   created() {
     this.$store.dispatch('fetchTours');
