@@ -7,6 +7,9 @@
     <div id="container">
       <TourCard v-for="tour in filteredTours" :key="tour.id" :tour="tour" />
     </div>
+    <div id="tour-carousel">
+      <ImageCarousel :tours="tours"/>
+    </div>
     <UspCard></UspCard>
     <div>
 
@@ -51,6 +54,7 @@ h1 {
 import TourCard from '../components/TourCard.vue';
 import SearchInput from '../components/SearchInput.vue';
 import UspCard from '../components/UspCard.vue';
+import ImageCarousel from '../components/ImageCarousel.vue';
 
 export default {
   name: 'HomeView',
@@ -58,6 +62,7 @@ export default {
     TourCard,
     SearchInput,
     UspCard,
+    ImageCarousel,
   },
   created() {
     this.$store.dispatch('fetchTours');
