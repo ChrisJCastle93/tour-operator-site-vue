@@ -2,7 +2,7 @@
   <n-card>
     <h1>€ {{ price }}</h1>
     <!-- <router-link class="link" :to="{ name: 'tourdetails', params: { id: tour.id } }"> -->
-      <n-button size="large" color="red">
+      <n-button @click="addToCart" size="large" color="red">
         <template #icon>
           <n-icon>
             <cash-icon />
@@ -37,6 +37,11 @@ export default defineComponent({
     NButton,
     NIcon,
     CashIcon,
+  },
+  methods: {
+    addToCart() {
+      this.$store.dispatch('addToCart', this.$store.state.selectedTour);
+    },
   },
 });
 </script>

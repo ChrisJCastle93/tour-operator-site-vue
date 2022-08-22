@@ -12,7 +12,6 @@
     </div>
     <UspCard></UspCard>
     <div>
-
     </div>
   </div>
 </template>
@@ -65,7 +64,8 @@ export default {
     ImageCarousel,
   },
   created() {
-    this.$store.dispatch('fetchTours');
+    this.$store.dispatch('fetchTours'); // fetches all tours to populate homepage
+    this.$store.dispatch('fetchCart');
   },
   computed: {
     tours() {
@@ -75,6 +75,9 @@ export default {
       return this.$store.state.tours
         .filter((tour) => tour.title.toLowerCase()
           .includes(this.$store.state.searchInput.toLowerCase()));
+    },
+    cart() {
+      return this.$store.state.cart;
     },
   },
 };

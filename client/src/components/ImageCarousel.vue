@@ -1,5 +1,5 @@
 <template>
-  <div id="carousel-container">
+  <div v-if="this.cities.length > 0" id="carousel-container">
     <h1>Get beneath the surface of these destinations</h1>
     <div id="image-carousel">
       <div v-for="(city, index) in computedCities" class="city-card" :key="index">

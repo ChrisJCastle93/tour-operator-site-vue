@@ -1,23 +1,25 @@
 <!-- eslint-disable no-console -->
 <template>
   <div id="container">
-    <h1>{{ selectedTour[0].title }}</h1>
+    <h1 v-if="selectedTour[0]">{{ selectedTour[0].title }}</h1>
     <TourCarousel :img="img" />
     <br />
     <div id="bodycontainer">
       <div id="left-col">
-        <h3>{{ selectedTour[0].summary }}</h3>
+        <h3 v-if="selectedTour[0]">{{ selectedTour[0].summary }}</h3>
         <br />
         <h2>Highlights</h2>
-        <h3 v-for="(highlight, index) in selectedTour[0].highlights" :key="index">
-          • {{ highlight }}
-        </h3>
+        <div v-if="selectedTour[0]">
+          <div v-for="(highlight, index) in selectedTour[0].highlights" :key="index">
+            • {{ highlight }}
+          </div>
+        </div>
         <br />
         <h2>Full Description</h2>
-        <h4 style="white-space: pre-wrap">{{ selectedTour[0].fullDescription }}</h4>
+        <h4 v-if="selectedTour[0]">{{ selectedTour[0].fullDescription }}</h4>
       </div>
       <div>
-        <PriceCard class="sticky" :price="selectedTour[0].price" />
+        <PriceCard class="sticky" v-if="selectedTour[0]" :price="selectedTour[0].price" />
       </div>
     </div>
   </div>
@@ -46,6 +48,10 @@
 
 * {
   text-align: left;
+}
+
+h4 {
+  white-space: pre-wrap
 }
 </style>
 
