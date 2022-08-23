@@ -27,6 +27,7 @@ export default createStore({
     ADD_TO_CART(state, selectedTour) {
       console.log('ADD TO CART MUTATION');
       state.cart.push(selectedTour);
+      console.log('VUEX CART: ', state.cart);
     },
   },
   actions: {
@@ -53,11 +54,14 @@ export default createStore({
     },
     fetchCart({ commit }) {
       const cart = cartService.getFromLocalStorage('cart');
-      if (!cart.length) {
+      console.log('fetched cart from local storeage: ', cart);
+      if (!cart.id) {
+        console.log('nothing in cart, resetting');
         const resetCart = [];
         cartService.addToLocalStorage('cart', resetCart);
         commit('SET_CART', []);
       } else {
+        console.log('setting vuex cart');
         commit('SET_CART', cart);
       }
     },

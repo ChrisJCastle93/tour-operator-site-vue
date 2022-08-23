@@ -25,6 +25,12 @@ const menuOptions = [
     }, 'Contact Us'),
     key: 'contact-us',
   },
+  {
+    label: () => h('a', {
+      href: '/cart',
+    }, 'Cart'),
+    key: 'cart',
+  },
 ];
 
 export default defineComponent({
