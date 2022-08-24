@@ -1,7 +1,16 @@
 <template>
 <div id="cart-container">
-    <div id="col-1">{{cart}}</div>
-    <div id="col-2"></div>
+    <div id="col-1">
+        <div class="cartItem" v-for="(item, index) in cart" :key="index">
+            <p>{{item.id}}</p>
+            <p>{{item.title}}</p>
+            <p>{{item.price}}</p>
+            <p>{{item.city}}</p>
+        </div>
+    </div>
+    <div id="col-2">
+        <p>checkout summary goes here</p>
+    </div>
 </div>
 </template>
 <script>
@@ -39,6 +48,12 @@ export default {
 }
 #col-2 {
     flex-grow: 1;
+}
+
+.cartItem {
+    display: flex;
+    width: 80%;
+    margin: auto;
 }
 
 </style>

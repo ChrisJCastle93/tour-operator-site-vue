@@ -54,19 +54,16 @@ export default createStore({
     },
     fetchCart({ commit }) {
       const cart = cartService.getFromLocalStorage('cart');
-      console.log('fetched cart from local storeage: ', cart);
-      if (!cart.id) {
-        console.log('nothing in cart, resetting');
-        const resetCart = [];
-        cartService.addToLocalStorage('cart', resetCart);
+      if (!cart.length) {
         commit('SET_CART', []);
       } else {
-        console.log('setting vuex cart');
         commit('SET_CART', cart);
       }
     },
     addToCart({ commit }, selectedTour) {
       cartService.addToLocalStorage('cart', selectedTour[0]);
+      // eslint-disable-next-line no-param-reassign
+      selectedTour[0].qty = 1;
       commit('ADD_TO_CART', selectedTour[0]);
     },
   },
