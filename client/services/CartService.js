@@ -1,15 +1,6 @@
 class LocalStorageService {
   addToLocalStorage = (key, value) => {
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
-    // const i = cart.forEach((item, index) => {
-    //   if (item.id === value.id) return index;
-    // });
-    // if (i) {
-    //   cart[i].qty++;
-    // } else {
-    cart.push(value);
-    // }
-    localStorage.setItem(key, JSON.stringify(cart));
+    localStorage.setItem(key, JSON.stringify(value));
   };
 
   getFromLocalStorage = (key) => {
@@ -17,7 +8,7 @@ class LocalStorageService {
     if (!cart) {
       localStorage.setItem('cart', JSON.stringify([]));
       return [];
-    // eslint-disable-next-line no-else-return
+      // eslint-disable-next-line no-else-return
     } else {
       const parsedCart = JSON.parse(cart);
       return parsedCart;

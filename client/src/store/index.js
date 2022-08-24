@@ -24,11 +24,6 @@ export default createStore({
     SET_CART(state, cart) {
       state.cart = cart;
     },
-    ADD_TO_CART(state, selectedTour) {
-      console.log('ADD TO CART MUTATION');
-      state.cart.push(selectedTour);
-      console.log('VUEX CART: ', state.cart);
-    },
   },
   actions: {
     fetchTours({ commit }) {
@@ -61,10 +56,35 @@ export default createStore({
       }
     },
     addToCart({ commit }, selectedTour) {
-      cartService.addToLocalStorage('cart', selectedTour[0]);
-      // eslint-disable-next-line no-param-reassign
-      selectedTour[0].qty = 1;
-      commit('ADD_TO_CART', selectedTour[0]);
+      const cart = cartService.getFromLocalStorage('cart');
+
+      // eslint-disable-next-line no-unused-vars
+      const newCart = [...cart];
+      // eslint-disable-next-line no-unused-vars
+      const cartProduct = {
+        ...selectedTour[0],
+        qty: 1,
+      };
+
+      // eslint-disable-next-line prefer-const
+      let cartUpdated = false;
+
+      newCart.forEach((item) => {
+        // eslint-disable-next-line eqeqeq
+        if (item.id == cartProduct.id) {
+          // eslint-disable-next-line no-param-reassign
+          item.qty += 1;
+          localStorage.setItem('cart', JSON.stringify(newCart));
+          cartUpdated = true;
+        }
+      });
+
+      if (!cartUpdated) {
+        newCart.push(cartProduct);
+        localStorage.setItem('cart', JSON.stringify(newCart));
+      }
+
+      commit('SET_CART', newCart);
     },
   },
   modules: {},

@@ -1,1 +1,7 @@
 - Not handling cart quantities correctly. Check how you did that in React v2.
+
+
+
+LATER: 
+
+- Refactor localstorage service so the logic happens in Vuex and the service only adds to local storage. Vuex action will need to get from local storage, set up the cart, and add to local storage. localStorage should be source of truth.
