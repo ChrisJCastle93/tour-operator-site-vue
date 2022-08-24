@@ -1,0 +1,1 @@
+- Not handling cart quantities correctly. Check how you did that in React v2.
