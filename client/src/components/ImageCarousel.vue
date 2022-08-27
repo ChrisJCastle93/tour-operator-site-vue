@@ -1,10 +1,14 @@
 <template>
-  <div v-if="this.cities.length > 0" id="carousel-container">
+  <div v-if="this.computedCities.length > 0" id="carousel-container">
     <h1>Get beneath the surface of these destinations</h1>
     <div id="image-carousel">
-      <div v-for="(city, index) in computedCities" class="city-card" :key="index">
-        {{ city.city }} {{ city.url }}
-        <!-- {{ city }} -->
+      <div
+        v-for="(city, index) in computedCities"
+        :style="backgroundImage(city.img)"
+        class="city-card"
+        :key="index"
+      >
+        {{ city.city }}
       </div>
     </div>
   </div>
@@ -23,19 +27,27 @@ export default {
 
   computed: {
     computedCities() {
+      console.log('computing cities');
       this.tours.forEach((tour) => {
         const query = tour.city;
-        axios.get(`https://api.unsplash.com/photos/random?client_id=xd8-hxjJkd6lN_mRyI12i38m5gozrXDZw4SaZVkmBes&query=${query}`)
+        axios
+          .get(
+            `https://api.unsplash.com/photos/random?client_id=xd8-hxjJkd6lN_mRyI12i38m5gozrXDZw4SaZVkmBes&query=${query}`,
+          )
           .then((response) => {
             this.cities.push({ city: tour.city, img: response.data.urls.regular });
           })
           .catch((err) => console.log(err));
       });
+      console.log(this.cities);
       return this.cities;
+    },
+    backgroundImage(url) {
+      console.log('rendering background');
+      return `background-image: url("${url}");`;
     },
   },
 };
-
 </script>
 
 <style scoped>

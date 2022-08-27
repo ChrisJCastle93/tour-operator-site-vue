@@ -10,9 +10,8 @@
     <div id="tour-carousel">
       <ImageCarousel :tours="tours"/>
     </div>
-    <UspCard></UspCard>
-    <div>
-    </div>
+    <UspCard />
+    <Reviews />
   </div>
 </template>
 
@@ -54,6 +53,7 @@ import TourCard from '../components/TourCard.vue';
 import SearchInput from '../components/SearchInput.vue';
 import UspCard from '../components/UspCard.vue';
 import ImageCarousel from '../components/ImageCarousel.vue';
+import Reviews from '../components/Reviews.vue';
 
 export default {
   name: 'HomeView',
@@ -62,6 +62,7 @@ export default {
     SearchInput,
     UspCard,
     ImageCarousel,
+    Reviews,
   },
   created() {
     this.$store.dispatch('fetchTours'); // fetches all tours to populate homepage

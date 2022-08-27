@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="main">
     <nav>
       <n-image
         height="50"
@@ -7,7 +7,12 @@
       />
       <NavBar />
     </nav>
-    <router-view />
+    <div id="middle">
+      <router-view />
+    </div>
+    <footer>
+      <p>Footer goes here.</p>
+    </footer>
   </div>
 </template>
 <script>
@@ -22,7 +27,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -44,5 +49,24 @@ nav a {
 
 nav a.router-link-exact-active {
   color: #42b983;
+}
+
+#main {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+router-view {
+  flex-grow: 1;
+}
+
+#middle {
+  flex: 1 0 auto;
+}
+
+footer {
+  background: #D3D3D3;
+  flex-shrink: 0;
 }
 </style>
