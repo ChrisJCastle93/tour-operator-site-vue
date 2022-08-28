@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import axios from 'axios';
+// import axios from 'axios';
 
 export default {
   props: ['tours'],
@@ -27,19 +27,18 @@ export default {
 
   computed: {
     computedCities() {
-      console.log('computing cities');
-      this.tours.forEach((tour) => {
-        const query = tour.city;
-        axios
-          .get(
-            `https://api.unsplash.com/photos/random?client_id=xd8-hxjJkd6lN_mRyI12i38m5gozrXDZw4SaZVkmBes&query=${query}`,
-          )
-          .then((response) => {
-            this.cities.push({ city: tour.city, img: response.data.urls.regular });
-          })
-          .catch((err) => console.log(err));
-      });
-      console.log(this.cities);
+      // this.tours.forEach((tour) => {
+      //   const query = tour.city;
+      //   axios
+      //     .get(
+      //       `https://api.unsplash.com/photos/random?client_id=xd8-hxjJkd6lN_mRyI12i38m5gozrXDZw4SaZVkmBes&query=${query}`,
+      //     )
+      //     .then((response) => {
+      //       this.cities.push({ city: tour.city, img: response.data.urls.regular });
+      //     })
+      //     .catch((err) => console.log(err));
+      // });
+      // console.log(this.cities);
       return this.cities;
     },
     backgroundImage(url) {

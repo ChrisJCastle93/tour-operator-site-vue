@@ -35,17 +35,16 @@ export default {};
 </script>
 
 <style scoped>
-
 img {
   padding: 20px;
 }
 
 #usp-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    padding: 5%;
-    background: whitesmoke;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 5%;
+  background: whitesmoke;
 }
 
 #card-container {

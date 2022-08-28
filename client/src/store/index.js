@@ -47,6 +47,9 @@ export default createStore({
     updateSearchInput({ commit }, searchInput) {
       commit('SET_SEARCHINPUT', searchInput);
     },
+    updateTours({ commit }, tours) {
+      commit('SET_TOURS', tours);
+    },
     fetchCart({ commit }) {
       const cart = cartService.getFromLocalStorage('cart');
       if (!cart.length) {

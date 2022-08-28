@@ -17,4 +17,8 @@ export default {
   getTour(id) {
     return apiClient.get(`/tours/${id}`);
   },
+
+  searchTours(query) {
+    return apiClient.get(`/tours?query=${query}`);
+  },
 };

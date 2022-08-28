@@ -49,7 +49,8 @@ h1 {
 
 #review-carousel {
   display: flex;
-  scroll-behavior: 
+  overflow: auto;
+  white-space: nowrap;
 }
 
 .review-card {

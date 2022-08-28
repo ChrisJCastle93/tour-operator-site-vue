@@ -1,5 +1,11 @@
-- Not handling cart quantities correctly. Check how you did that in React v2.
+- Create Search Results Page and functionality
+- Create ability to review products and then display them
+- Create checkout functionality w/ Stripe
+- Create ability to view previous orders based on name and order reference
 
+THEN: 
+- Make Responsive
+- Convert to TypeScript
 
 
 LATER: 

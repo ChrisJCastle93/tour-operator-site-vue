@@ -3,7 +3,9 @@
     <img alt="tourpic" class="n-card" :src="tour.images[0]" />
     <h3>{{ tour.title }}</h3>
     <p id="summary">{{ tour.summary }}</p>
-    <h4 id="price"><strong>€ {{ tour.price }}</strong> | <span>{{ tour.duration }} hours</span></h4>
+    <h4 id="price">
+      <strong>€ {{ tour.price }}</strong> | <span>{{ tour.duration }} hours</span>
+    </h4>
     <router-link class="link" :to="{ name: 'tourdetails', params: { id: tour.id } }">
       <n-button color="red">
         <template #icon>
@@ -39,7 +41,7 @@ img {
 }
 
 #summary {
-height: 175px;
+  height: 175px;
 }
 
 .link {

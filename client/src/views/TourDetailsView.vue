@@ -51,30 +51,30 @@
 }
 
 h4 {
-  white-space: pre-wrap
+  white-space: pre-wrap;
 }
 </style>
 
 <script>
-import TourCarousel from '../components/TourCarousel.vue';
-import PriceCard from '../components/PriceCard.vue';
+import TourCarousel from "../components/TourCarousel.vue";
+import PriceCard from "../components/PriceCard.vue";
 
 export default {
-  name: 'TourDetailsView',
+  name: "TourDetailsView",
   components: {
     TourCarousel,
     PriceCard,
   },
-  props: ['id'],
+  props: ["id"],
   created() {
-    this.$store.dispatch('fetchTour', this.id);
+    this.$store.dispatch("fetchTour", this.id);
   },
   computed: {
     selectedTour() {
       return this.$store.state.selectedTour;
     },
     img() {
-      return this.$store.state.selectedTour ? this.$store.state.selectedTour[0].images[0] : '';
+      return this.$store.state.selectedTour ? this.$store.state.selectedTour[0].images[0] : "";
     },
   },
 };

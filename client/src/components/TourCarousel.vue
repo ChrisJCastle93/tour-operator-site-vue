@@ -8,21 +8,20 @@
 
 <style scoped>
 img {
-    width: 100%;
+  width: 100%;
 }
 
 .n-carousel {
-    border-radius: 50px;
+  border-radius: 50px;
 }
 </style>
 
 <script>
-
-import { NCarousel } from 'naive-ui';
+import { NCarousel } from "naive-ui";
 
 export default {
-  name: 'TourCarousel',
-  props: ['img'],
+  name: "TourCarousel",
+  props: ["img"],
   components: {
     NCarousel,
   },
