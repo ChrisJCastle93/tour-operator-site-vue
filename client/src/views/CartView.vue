@@ -2,43 +2,39 @@
   <div id="cart-container">
     <div id="col-1">
       <div class="cartItem" v-for="(item, index) in cart" :key="index">
-        <p>{{ item.id }}</p>
-        <p>{{ item.title }}</p>
-        <p>{{ item.price }}</p>
-        <p>{{ item.city }}</p>
+        <CartItem :item="item" />
       </div>
     </div>
     <div id="col-2">
-      <p>checkout summary goes here</p>
+      <p>TOTAL: € {{ cartTotal }}</p>
+      <button>checkout</button>
     </div>
   </div>
 </template>
 <script>
+import CartItem from '@/components/CartItem.vue';
+
 export default {
   created() {
-    this.$store.dispatch("fetchCart");
+    this.$store.dispatch('fetchCart');
+  },
+  components: {
+    CartItem,
   },
   computed: {
     cart() {
-      console.log(this.$store.state);
       return this.$store.state.cart;
+    },
+    cartTotal() {
+      return this.cart.reduce((acc, item) => acc + (item.price * item.qty), 0);
     },
   },
 };
 </script>
 
 <style scoped>
-* {
-  outline: 1px solid red;
-}
-
 #cart-container {
   display: flex;
-  background-color: gray;
-}
-
-#cart-container div {
-  background-color: yellow;
 }
 
 #col-1 {

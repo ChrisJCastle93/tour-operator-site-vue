@@ -36,7 +36,8 @@
     "eslint-plugin-vue": "^8.0.3",
     "eslint-plugin-vuejs-accessibility": "^1.1.0",
     "jest": "^27.0.5",
-    "vfonts": "^0.0.3"
+    "vfonts": "^0.0.3",
+    "vue-cli-plugin-chakra-ui": "~1.0.3"
   },
   "eslintConfig": {
     "root": true,
