@@ -20,6 +20,9 @@ const allRoutes = require("./routes/index.routes");
 app.use("/api", allRoutes);
 const tourRoutes = require("./routes/tours.routes");
 app.use("/api/tours", tourRoutes);
+const checkoutRoutes = require("./routes/checkout.routes");
+app.use("/api/checkout", checkoutRoutes);
+
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);
