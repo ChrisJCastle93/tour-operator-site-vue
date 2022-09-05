@@ -3,24 +3,23 @@ import axios from 'axios';
 class Service {
   constructor() {
     this.service = axios.create({
-      baseURL: 'http://localhost:5005/api',
+      baseURL: 'http://localhost:5005/api/checkout',
     });
   }
 
   createOrder = (order) => {
-    console.log('creating order');
-    const {
-      name, email, cart, total,
-    } = order;
-  }
+    this.service.post('/create-order', order).then((response) => response.data).catch((error) => {
+      console.log(error);
+    });
+  };
 
-  createCheckoutSession = async () => {
-    // const res = await axios.post(
-    //   `${process.env.REACT_APP_API_URL}/api/payments/create-checkout-session`,
-    //   { cartTotal: totalPrice.toFixed(2), id: orderId.data._id },
-    // );
-    const res = 'creating checkout session';
-    return res;
+  createCheckoutSession = (cartTotal, orderId) => {
+    this.service.post(
+      '/create-checkout-session',
+      { cartTotal: cartTotal.toFixed(2), id: orderId },
+    )
+      .then((response) => window.location.assign(response.data.url))
+      .catch((error) => console.log(error));
   }
 
   redirectToOrderStatus = () => {

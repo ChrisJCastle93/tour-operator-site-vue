@@ -29,14 +29,15 @@ export default {
     this.$store.dispatch('fetchCart');
   },
   methods: {
-    onSubmit(e) {
-      console.log('onSubmit');
-      checkoutService.createOrder({
+    async onSubmit(e) {
+      const orderId = await checkoutService.createOrder({
         name: e.target.name.value,
         email: e.target.email.value,
         cart: this.cart,
         total: this.cartTotal,
       });
+      console.log(orderId);
+      checkoutService.createCheckoutSession(this.cartTotal, orderId);
     },
   },
   components: {

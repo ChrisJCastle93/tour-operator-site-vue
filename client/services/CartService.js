@@ -12,7 +12,6 @@ class LocalStorageService {
       // eslint-disable-next-line no-else-return
     } else {
       const parsedCart = JSON.parse(cart);
-      console.log(parsedCart);
       return parsedCart;
     }
   };
