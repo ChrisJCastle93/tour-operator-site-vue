@@ -1,0 +1,10 @@
+{
+    "reviews": [
+      {
+        "name": "Chris",
+        "rating": 5,
+        "review": "This place is great",
+        "product": 1
+      }
+    ]  
+}

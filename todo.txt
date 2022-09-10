@@ -1,0 +1,12 @@
+- Create Search Results Page and functionality
+- Create ability to review products and then display them
+
+THEN: 
+- Switch to Chakra Vue.
+- Make Responsive
+- Convert to TypeScript
+- Add some tests
+
+LATER REFACTORING: 
+
+- Refactor localstorage service so the logic happens in Vuex and the service only adds to local storage. Vuex action will need to get from local storage, set up the cart, and add to local storage. localStorage should be source of truth.
