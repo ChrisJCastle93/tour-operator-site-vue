@@ -9,6 +9,30 @@
   </form>
 </template>
 
+<script>
+import { defineComponent } from 'vue';
+import { NInput } from 'naive-ui';
+
+export default defineComponent({
+  components: {
+    NInput,
+  },
+  computed: {
+    searchInput() {
+      return this.$store.state.searchInput;
+    },
+  },
+  methods: {
+    updateSearchInput(e) {
+      this.$store.dispatch('updateSearchInput', e);
+    },
+    onSubmit() {
+      this.$router.push(`/search?query=${this.searchInput}`);
+    },
+  },
+});
+</script>
+
 <style scoped>
 form {
   width: 100%;
@@ -27,27 +51,3 @@ form {
   width: 30%;
 }
 </style>
-
-<script>
-import { defineComponent } from 'vue';
-import { NInput } from 'naive-ui';
-
-export default defineComponent({
-  computed: {
-    searchInput() {
-      return this.$store.state.searchInput;
-    },
-  },
-  methods: {
-    updateSearchInput(e) {
-      this.$store.dispatch('updateSearchInput', e);
-    },
-    onSubmit() {
-      this.$router.push(`/search?query=${this.searchInput}`);
-    },
-  },
-  components: {
-    NInput,
-  },
-});
-</script>

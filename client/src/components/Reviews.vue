@@ -1,8 +1,8 @@
 <template>
   <div id="carousel-container">
-    <h2 class="text-4xl font-extrabold mt-12 mb-12 dark:text-white">
+    <h3 class="text-2xl font-extrabold mt-12 mb-12 dark:text-white">
       What our travellers are saying
-    </h2>
+    </h3>
     <div class="grid rounded-lg md:mb-12 md:grid-cols-4">
       <div
         v-for="(review, index) in reviews"
@@ -84,11 +84,11 @@
       class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
       @click="open"
     >
-      Red
+      Leave a review
     </button>
     <div
       id="popup-modal"
-      class="hidden w-50 h-50 bg-red-100 fixed m-20 z-50 md:inset-0 bg-white rounded-lg shadow"
+      class="w-50 h-50 bg-white fixed m-20 z-50 md:inset-0 bg-white rounded-lg shadow"
     >
       <div
         tabindex="-1"
@@ -124,40 +124,189 @@
               <form
                 class="space-y-6"
                 action="#"
+                @submit.prevent="onSubmit"
               >
                 <div>
                   <label
-                    for="email"
+                    for="name"
                     class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                  >Your email</label>
+                  >Your name</label>
                   <input
-                    id="email"
-                    type="email"
-                    name="email"
+                    id="name"
+                    type="text"
+                    name="name"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                    placeholder="name@company.com"
+                    placeholder="Joe Bloggs"
                     required
                   >
                 </div>
+                <label
+                  for="countries"
+                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400"
+                >Select an option</label>
+                <select
+                  id="countries"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                >
+                  <option selected>
+                    Choose a tour
+                  </option>
+                  <option
+                    v-for="tour in tours"
+                    :key="tour.id"
+                    :value="tour.id"
+                  >
+                    {{ tour.title }}
+                  </option>
+                </select>
                 <div>
                   <label
-                    for="password"
+                    for="review"
                     class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                  >Your password</label>
-                  <input
-                    id="password"
-                    type="password"
-                    name="password"
-                    placeholder="••••••••"
+                  >Your Review</label>
+                  <textarea
+                    rows="10"
+                    name="review"
+                    placeholder="write here"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                     required
-                  >
+                  />
                 </div>
+                <h3 class="mb-4 font-semibold text-gray-900 dark:text-white">
+                  Identification
+                </h3>
+                <ul class="items-center w-full text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 sm:flex dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                  <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                    <div class="flex items-center pl-3">
+                      <input
+                        id="horizontal-list-radio-license"
+                        type="radio"
+                        value="1"
+                        name="list-radio"
+                        class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                      >
+                      <label
+                        for="horizontal-list-radio-license"
+                        class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300"
+                      >* </label>
+                    </div>
+                  </li>
+                  <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                    <div class="flex items-center pl-3">
+                      <input
+                        id="horizontal-list-radio-id"
+                        type="radio"
+                        value="2"
+                        name="list-radio"
+                        class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                      >
+                      <label
+                        for="horizontal-list-radio-id"
+                        class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300"
+                      >**</label>
+                    </div>
+                  </li>
+                  <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                    <div class="flex items-center pl-3">
+                      <input
+                        id="horizontal-list-radio-millitary"
+                        type="radio"
+                        value="3"
+                        name="list-radio"
+                        class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                      >
+                      <label
+                        for="horizontal-list-radio-millitary"
+                        class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300"
+                      >***</label>
+                    </div>
+                  </li>
+                  <li class="w-full dark:border-gray-600">
+                    <div class="flex items-center pl-3">
+                      <input
+                        id="horizontal-list-radio-passport"
+                        type="radio"
+                        value="4"
+                        name="list-radio"
+                        class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                      >
+                      <label
+                        for="horizontal-list-radio-passport"
+                        class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300"
+                      >****</label>
+                    </div>
+                  </li>
+                  <li class="w-full dark:border-gray-600">
+                    <div class="flex items-center pl-3">
+                      <input
+                        id="horizontal-list-radio-passport"
+                        type="radio"
+                        value="5"
+                        name="list-radio"
+                        class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                      >
+                      <label
+                        for="horizontal-list-radio-passport"
+                        class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300"
+                      ><div class="flex items-center">
+                        <svg
+                          aria-hidden="true"
+                          class="w-5 h-5 text-yellow-400"
+                          fill="currentColor"
+                          viewBox="0 0 20 20"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <title>First star</title>
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                        <svg
+                          aria-hidden="true"
+                          class="w-5 h-5 text-yellow-400"
+                          fill="currentColor"
+                          viewBox="0 0 20 20"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <title>Second star</title>
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                        <svg
+                          aria-hidden="true"
+                          class="w-5 h-5 text-yellow-400"
+                          fill="currentColor"
+                          viewBox="0 0 20 20"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <title>Third star</title>
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                        <svg
+                          aria-hidden="true"
+                          class="w-5 h-5 text-yellow-400"
+                          fill="currentColor"
+                          viewBox="0 0 20 20"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <title>Fourth star</title>
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                        <svg
+                          aria-hidden="true"
+                          class="w-5 h-5 text-yellow-400 dark:text-gray-500"
+                          fill="currentColor"
+                          viewBox="0 0 20 20"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <title>Fifth star</title>
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg></div></label>
+                    </div>
+                  </li>
+                </ul>
                 <button
                   type="submit"
                   class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                 >
-                  Login to your account
+                  Post Review
                 </button>
               </form>
             </div>
@@ -177,11 +326,17 @@ export default {
     reviews() {
       return this.$store.state.reviews;
     },
+    tours() {
+      return this.$store.state.tours;
+    },
   },
   created() {
     ReviewService.getReviews();
   },
   methods: {
+    onSubmit(e) {
+      console.log(e.target.name.value);
+    },
     postReview() {
       this.$router.push({ name: 'PostReview' });
     },

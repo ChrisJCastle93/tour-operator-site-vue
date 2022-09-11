@@ -3,7 +3,7 @@
     <nav>
       <a href="/">
         <img
-          height="50"
+          width="250"
           alt="logo"
           src="https://cdn.ventrata.com/image/upload/s--eqruQi84--/b_transparent,c_pad,g_west,h_90,w_540/v1652707045/zk9fm987mb5dmwf6r7pm.png"
         >
