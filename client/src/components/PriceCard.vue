@@ -1,15 +1,15 @@
 <template>
   <n-card>
     <h1>€ {{ price }}</h1>
-    <!-- <router-link class="link" :to="{ name: 'tourdetails', params: { id: tour.id } }"> -->
-      <n-button @click="addToCart" size="large" color="red">
-        <template #icon>
-          <n-icon>
-            <cash-icon />
-          </n-icon>
-        </template>
-        Buy Now
-      </n-button>
+    <!-- <router-link class="link" :to="{ name: 'tourdetails', params: { id: tour._id } }"> -->
+    <n-button @click="addToCart" size="large" color="red">
+      <template #icon>
+        <n-icon>
+          <cash-icon />
+        </n-icon>
+      </template>
+      Buy Now
+    </n-button>
     <!-- </router-link> -->
   </n-card>
 </template>
@@ -21,17 +21,17 @@
 }
 
 .link {
-    text-decoration: none;
+  text-decoration: none;
 }
 </style>
 
 <script>
-import { defineComponent } from 'vue';
-import { NCard, NButton, NIcon } from 'naive-ui';
-import { HeartOutline as CashIcon } from '@vicons/ionicons5';
+import { defineComponent } from "vue";
+import { NCard, NButton, NIcon } from "naive-ui";
+import { HeartOutline as CashIcon } from "@vicons/ionicons5";
 
 export default defineComponent({
-  props: ['price'],
+  props: ["price"],
   components: {
     NCard,
     NButton,
@@ -40,7 +40,7 @@ export default defineComponent({
   },
   methods: {
     addToCart() {
-      this.$store.dispatch('addToCart', this.$store.state.selectedTour);
+      this.$store.dispatch("addToCart", this.$store.state.selectedTour);
     },
   },
 });

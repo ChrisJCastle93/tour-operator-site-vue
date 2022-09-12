@@ -12,6 +12,7 @@ export default createStore({
     test: '',
     foundBooking: {},
     reviews: [],
+    reviewSubmitted: false,
   },
   getters: {},
   mutations: {
@@ -37,6 +38,9 @@ export default createStore({
       console.log('MUTATION: ', test);
       state.test = test;
     },
+    SET_REVIEWSUBMITTED(state, status) {
+      state.reviewSubmitted = status;
+    },
   },
   actions: {
     fetchTours({ commit }) {
@@ -51,6 +55,9 @@ export default createStore({
     fetchTour({ commit }, id) {
       TourService.getTour(id)
         .then((response) => {
+          const tour = response.data[0];
+          tour.reviews = tour.reviews.filter(Boolean);
+          console.log(tour);
           commit('SET_SELECTEDTOUR', response.data);
         })
         .catch((error) => {
@@ -64,12 +71,13 @@ export default createStore({
       commit('SET_TOURS', tours);
     },
     updateReviews({ commit }, reviews) {
-      console.log('received reviews in store...');
       commit('SET_REVIEWS', reviews);
     },
     updateFoundBooking({ commit }, booking) {
-      console.log(booking);
       commit('SET_FOUNDBOOKING', booking);
+    },
+    reviewSubmitted({ commit }, status) {
+      commit('SET_REVIEWSUBMITTED', status);
     },
     test({ commit }, string) {
       console.log('ACTION: ', string);

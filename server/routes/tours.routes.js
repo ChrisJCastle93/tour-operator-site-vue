@@ -1,12 +1,10 @@
-const e = require("express");
-
 const router = require("express").Router();
-const events = require('../utils/db.json').events
+const Tour = require('../models/Tours.model')
 
 /* GET home page */
-router.get("/", (req, res, next) => {
+router.get("/", async (req, res, next) => {
+  const events = await Tour.find()
   if (req.query.query) {
-    console.log('There are ' + events.length + ' events')
     const filteredEvents = events.filter(event => {
       return event.title.toLowerCase().includes(req.query.query.toLowerCase()) || event.city.toLowerCase().includes(req.query.query.toLowerCase())
     }) 
@@ -16,9 +14,15 @@ router.get("/", (req, res, next) => {
   }
 });
 
-router.get("/:id", (req, res, next) => {
-  const tour = events.filter(tour => tour.id == req.params.id);
-  res.json(tour);
+router.get("/:id", async (req, res, next) => {
+  const event = await Tour.findById(req.params.id).populate("reviews");
+  event.reviews = event.reviews.filter(Boolean);
+  res.json(Array.of(event));
+});
+
+router.post("/new", (req, res, next) => {
+  Tour.create(req.body).then((response) => {
+  }).catch((error) => console.log(error))
 });
 
 module.exports = router;

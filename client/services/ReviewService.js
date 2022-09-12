@@ -9,11 +9,21 @@ class Service {
   }
 
   getReviews() {
-    console.log('getting reviews in service...');
-    this.service.get('/').then((response) => {
-      console.log('got reviews in service...');
-      store.dispatch('updateReviews', response.data);
-    }).catch((error) => console.log(error));
+    this.service
+      .get('/')
+      .then((response) => {
+        store.dispatch('updateReviews', response.data);
+      })
+      .catch((error) => console.log(error));
+  }
+
+  postReview(review) {
+    this.service
+      .post('/new', review)
+      .then(() => {
+        store.dispatch('reviewSubmitted', true);
+      })
+      .catch((error) => console.log(error));
   }
 }
 

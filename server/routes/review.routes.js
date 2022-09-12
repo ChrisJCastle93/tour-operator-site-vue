@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const Reviews = require("../models/Review.model");
+const Tour = require("../models/Tours.model");
 
 
 router.get("/", async (req, res) => {
@@ -25,12 +26,14 @@ router.get("/:id", async (req, res) => {
 });
 
 router.post("/new", async (req, res) => {
-  const review = req.body;
-    Reviews.create(review).then(() => {
-        res.status(200).json("created review");
-    }).catch ((error) => {
-        res.status(500).json(error);
-    });
+  try {
+    const review = req.body;
+    const response = await Reviews.create(review);
+    const updatedTour = await Tour.findByIdAndUpdate({ _id: review.tour }, { $push: { reviews: response._id } }, { new: true });
+    res.status(200).json("created review");
+  } catch (err) {
+    console.log(err)
+  }
 });
 
 module.exports = router;

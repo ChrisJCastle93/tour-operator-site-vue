@@ -88,9 +88,35 @@
     </button>
     <div
       id="popup-modal"
-      class="w-50 h-50 bg-white fixed m-20 z-50 md:inset-0 bg-white rounded-lg shadow"
+      class="hidden w-50 h-50 bg-white fixed m-20 z-50 md:inset-0 bg-white rounded-lg shadow"
     >
       <div
+        v-if="reviewSubmitted"
+        class="flex items-center h-full justify-center overflow-x-hidden"
+      >
+        <p>Thanks for submitting your review.</p>
+        <button
+          type="button"
+          class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white"
+          data-modal-toggle="authentication-modal"
+          @click="close"
+        >
+          <svg
+            aria-hidden="true"
+            class="w-5 h-5"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          ><path
+            fill-rule="evenodd"
+            d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+            clip-rule="evenodd"
+          /></svg>
+          <span class="sr-only">Close modal</span>
+        </button>
+      </div>
+      <div
+        v-else
         tabindex="-1"
         aria-hidden="true"
         class="flex items-center justify-center overflow-x-hidden"
@@ -141,11 +167,12 @@
                   >
                 </div>
                 <label
-                  for="countries"
+                  for="tours"
                   class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400"
                 >Select an option</label>
                 <select
-                  id="countries"
+                  id="tours"
+                  name="tours"
                   class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 >
                   <option selected>
@@ -153,8 +180,8 @@
                   </option>
                   <option
                     v-for="tour in tours"
-                    :key="tour.id"
-                    :value="tour.id"
+                    :key="tour._id"
+                    :value="tour._id"
                   >
                     {{ tour.title }}
                   </option>
@@ -165,6 +192,7 @@
                     class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                   >Your Review</label>
                   <textarea
+                    id="review"
                     rows="10"
                     name="review"
                     placeholder="write here"
@@ -173,20 +201,20 @@
                   />
                 </div>
                 <h3 class="mb-4 font-semibold text-gray-900 dark:text-white">
-                  Identification
+                  Rating
                 </h3>
                 <ul class="items-center w-full text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 sm:flex dark:bg-gray-700 dark:border-gray-600 dark:text-white">
                   <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
                     <div class="flex items-center pl-3">
                       <input
-                        id="horizontal-list-radio-license"
+                        id="rating"
                         type="radio"
                         value="1"
-                        name="list-radio"
+                        name="rating"
                         class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
                       >
                       <label
-                        for="horizontal-list-radio-license"
+                        for="rating"
                         class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300"
                       >* </label>
                     </div>
@@ -194,14 +222,14 @@
                   <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
                     <div class="flex items-center pl-3">
                       <input
-                        id="horizontal-list-radio-id"
+                        id="rating"
                         type="radio"
                         value="2"
-                        name="list-radio"
+                        name="rating"
                         class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
                       >
                       <label
-                        for="horizontal-list-radio-id"
+                        for="rating"
                         class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300"
                       >**</label>
                     </div>
@@ -209,14 +237,14 @@
                   <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
                     <div class="flex items-center pl-3">
                       <input
-                        id="horizontal-list-radio-millitary"
+                        id="rating"
                         type="radio"
                         value="3"
-                        name="list-radio"
+                        name="rating"
                         class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
                       >
                       <label
-                        for="horizontal-list-radio-millitary"
+                        for="rating"
                         class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300"
                       >***</label>
                     </div>
@@ -224,14 +252,14 @@
                   <li class="w-full dark:border-gray-600">
                     <div class="flex items-center pl-3">
                       <input
-                        id="horizontal-list-radio-passport"
+                        id="rating"
                         type="radio"
                         value="4"
-                        name="list-radio"
+                        name="rating"
                         class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
                       >
                       <label
-                        for="horizontal-list-radio-passport"
+                        for="rating"
                         class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300"
                       >****</label>
                     </div>
@@ -239,14 +267,14 @@
                   <li class="w-full dark:border-gray-600">
                     <div class="flex items-center pl-3">
                       <input
-                        id="horizontal-list-radio-passport"
+                        id="rating"
                         type="radio"
                         value="5"
-                        name="list-radio"
+                        name="rating"
                         class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
                       >
                       <label
-                        for="horizontal-list-radio-passport"
+                        for="rating"
                         class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300"
                       ><div class="flex items-center">
                         <svg
@@ -326,6 +354,10 @@ export default {
     reviews() {
       return this.$store.state.reviews;
     },
+    reviewSubmitted() {
+      console.log('Review Submitted');
+      return this.$store.state.reviewSubmitted;
+    },
     tours() {
       return this.$store.state.tours;
     },
@@ -335,7 +367,13 @@ export default {
   },
   methods: {
     onSubmit(e) {
-      console.log(e.target.name.value);
+      const obj = {
+        name: e.target.name.value,
+        review: e.target.review.value,
+        rating: e.target.rating.value,
+        tour: e.target.tours.value,
+      };
+      ReviewService.postReview(obj);
     },
     postReview() {
       this.$router.push({ name: 'PostReview' });

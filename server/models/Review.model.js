@@ -5,7 +5,7 @@ const reviewSchema = new Schema(
     name: String,
     rating: Number,
     review: String,
-    product: Number,
+    tour: { type: Schema.Types.ObjectId, ref: "Tour" },
   },
   {
     timestamps: true,

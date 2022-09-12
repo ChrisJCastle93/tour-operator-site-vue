@@ -1,11 +1,10 @@
-- Create Search Results Page and functionality
-- Create ability to review products and then display them
+-fix add to cart
 
 THEN: 
-- Switch to Chakra Vue.
-- Make Responsive
 - Convert to TypeScript
 - Add some tests
+- Switch to Tailwind
+- Make Responsive
 
 LATER REFACTORING: 
 
