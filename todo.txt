@@ -1,4 +1,4 @@
--fix add to cart
+- fix add to cart
 
 THEN: 
 - Convert to TypeScript
