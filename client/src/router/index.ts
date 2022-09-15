@@ -1,5 +1,5 @@
-import TourDetailsView from '../views/TourDetailsView.vue';
 import { createRouter, createWebHistory } from 'vue-router';
+import TourDetailsView from '../views/TourDetailsView.vue';
 import HomeView from '../views/HomeView.vue';
 
 const routes = [

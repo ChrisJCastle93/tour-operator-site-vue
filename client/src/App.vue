@@ -36,36 +36,29 @@ export default {
   text-align: center;
   color: #2c3e50;
 }
-
 nav {
   padding: 30px;
   display: flex;
   justify-content: space-between;
 }
-
 nav a {
   font-weight: bold;
   color: #2c3e50;
 }
-
 nav a.router-link-exact-active {
   color: #42b983;
 }
-
 #main {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
-
 router-view {
   flex-grow: 1;
 }
-
 #middle {
   flex: 1 0 auto;
 }
-
 footer {
   background: #d3d3d3;
   flex-shrink: 0;

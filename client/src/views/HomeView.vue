@@ -2,11 +2,15 @@
 <template>
   <div class="home">
     <div id="header">
-      <h1>Unforgettable<br />experiences.</h1>
+      <h1>Unforgettable<br>experiences.</h1>
       <SearchInput />
     </div>
     <div id="container">
-      <TourCard v-for="tour in filteredTours" :key="tour._id" :tour="tour" />
+      <TourCard
+        v-for="tour in filteredTours"
+        :key="tour._id"
+        :tour="tour"
+      />
     </div>
     <div id="tour-carousel">
       <ImageCarousel :tours="tours" />
@@ -17,14 +21,14 @@
 </template>
 
 <script>
-import TourCard from "../components/TourCard.vue";
-import SearchInput from "../components/SearchInput.vue";
-import UspCard from "../components/UspCard.vue";
-import ImageCarousel from "../components/ImageCarousel.vue";
-import Reviews from "../components/Reviews.vue";
+import TourCard from '../components/TourCard.vue';
+import SearchInput from '../components/SearchInput.vue';
+import UspCard from '../components/UspCard.vue';
+import ImageCarousel from '../components/ImageCarousel.vue';
+import Reviews from '../components/Reviews.vue';
 
 export default {
-  name: "HomeView",
+  name: 'HomeView',
   components: {
     TourCard,
     SearchInput,
@@ -45,8 +49,8 @@ export default {
     },
   },
   created() {
-    this.$store.dispatch("fetchTours"); // fetches all tours to populate homepage
-    this.$store.dispatch("fetchCart");
+    this.$store.dispatch('fetchTours'); // fetches all tours to populate homepage
+    this.$store.dispatch('fetchCart');
   },
 };
 </script>
@@ -59,14 +63,12 @@ h1 {
   font-weight: bold;
   filter: drop-shadow(2px 2px 0.2rem black);
 }
-
 #container {
   padding: 50px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
 }
-
 #header {
   background-image: url("https://cdn.ventrata.com/image/upload/s--Fm46deUd--/ar_3,c_fill,dpr_2.0,q_auto,w_1500/v1654739183/gosqgnbz6p9mz1jbf2xv.jpg");
   background-repeat: no-repeat;

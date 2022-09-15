@@ -7,49 +7,50 @@
       <n-spin v-if="isLoading" color="red" size="large" />
     </div>
     <div v-if="!isLoading" id="results-container">
-      <TourCard v-for="(tour, index) in tours" :tour="tour" :key="index" />
+      <TourCard v-for="(tour, index) in tours" :key="index" :tour="tour" />
     </div>
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import { NSpin } from "naive-ui";
-import TourCard from "../components/TourCard.vue";
 import TourService from "../../services/TourService";
+import TourCard from "../components/TourCard.vue";
 
-export default {
+import { defineComponent } from "vue";
+export default defineComponent({
+  components: {
+    NSpin,
+    TourCard,
+  },
   data() {
     return {
       loadStatus: false,
     };
   },
-  components: {
-    NSpin,
-    TourCard,
-  },
   computed: {
-    searchQuery() {
+    searchQuery(): any {
       return this.$route.query.query;
     },
-    tours() {
+    tours(): any {
       return this.$store.state.tours;
     },
-    isLoading() {
+    isLoading(): boolean {
       return this.loadStatus;
     },
-    tourLength() {
+    tourLength(): number {
       return this.$store.state.tours.length;
     },
   },
-  created() {
+  created(): void {
     TourService.searchTours(this.searchQuery)
-      .then((response) => {
+      .then((response: any): void => {
         this.loadStatus = false;
         this.$store.dispatch("updateTours", response.data);
       })
-      .catch((err) => console.log(err));
+      .catch((err: any): void => console.log(err));
   },
-};
+});
 </script>
 
 <style scoped>
