@@ -1,11 +1,14 @@
-- fix add to cart
+[✅] Convert BE to TypeScript
 
-THEN: 
-- Convert to TypeScript
-- Add some tests
-- Switch to Tailwind
-- Make Responsive
+[ ] Convert FE to TypeScript
+
+[ ] Add some tests
+
+[ ] Switch to Tailwind
+
+[ ] Make Responsive
 
 LATER REFACTORING: 
 
+- fix add to cart
 - Refactor localstorage service so the logic happens in Vuex and the service only adds to local storage. Vuex action will need to get from local storage, set up the cart, and add to local storage. localStorage should be source of truth.

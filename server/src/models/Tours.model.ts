@@ -1,6 +1,7 @@
-const { Schema, model } = require("mongoose");
+import { Schema, model } from "mongoose";
+import { ToursInterface } from "../types/models.interfaces";
 
-const tourSchema = new Schema(
+const tourSchema = new Schema<ToursInterface>(
   {
     title: String,
     city: String,
@@ -18,6 +19,6 @@ const tourSchema = new Schema(
   }
 );
 
-const Tour = model("Tour", tourSchema);
+const Tour = model<ToursInterface & Document>("Tour", tourSchema);
 
 module.exports = Tour;

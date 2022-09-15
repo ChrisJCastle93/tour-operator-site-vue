@@ -14,11 +14,11 @@
 // const isLoggedOut = require("../middleware/isLoggedOut");
 // const isLoggedIn = require("../middleware/isLoggedIn");
 
-// router.get("/loggedin", (req, res) => {
+// router.get("/loggedin", (req: Request, res: Response) => {
 //   res.json(req.user);
 // });
 
-// router.post("/signup", isLoggedOut, (req, res) => {
+// router.post("/signup", isLoggedOut, (req: Request, res: Response) => {
 //   const { username, password } = req.body;
 
 //   if (!username) {
@@ -83,7 +83,7 @@
 //   });
 // });
 
-// router.post("/login", isLoggedOut, (req, res, next) => {
+// router.post("/login", isLoggedOut, (req: Request<P, ResBody, ReqBody, ReqQuery>, res: Response<ResBody>, next: NextFunction): Promise<void> => {
 //   const { username, password } = req.body;
 
 //   if (!username) {
@@ -127,7 +127,7 @@
 //     });
 // });
 
-// router.get("/logout", isLoggedIn, (req, res) => {
+// router.get("/logout", isLoggedIn, (req: Request, res: Response) => {
 //   req.session.destroy((err) => {
 //     if (err) {
 //       return res.status(500).json({ errorMessage: err.message });
