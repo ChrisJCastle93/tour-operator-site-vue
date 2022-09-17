@@ -1,24 +1,21 @@
 module.exports = {
-  env: {
-    browser: true,
-    es2020: true,
-    node: true,
-  },
-  extends: ['plugin:vue/vue3-recommended', 'airbnb-base'],
+  root: true,
+  parser: "vue-eslint-parser",
   parserOptions: {
-    ecmaVersion: 12,
-    sourceType: 'module',
+    parser: "@typescript-eslint/parser",
   },
-  plugins: ['vue'],
+  extends: [
+    "plugin:vue/strongly-recommended",
+    "eslint:recommended",
+    "@vue/typescript/recommended",
+    "prettier",
+  ],
+  plugins: ["@typescript-eslint", "prettier"],
   rules: {
-    'max-len': 'off',
-    'no-console': 'off',
-    'no-param-reassign': [
-      'error',
-      {
-        props: true,
-        ignorePropertyModificationsFor: ['state'],
-      },
-    ],
+    "prettier/prettier": "error",
+    "vue/no-multiple-template-root": "off",
+  },
+  env: {
+    node: true,
   },
 };

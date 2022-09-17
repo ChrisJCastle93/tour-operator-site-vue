@@ -14,8 +14,9 @@
   </div>
 </template>
 
-<script>
-// import axios from 'axios';
+<script lang="ts">
+import axios from 'axios';
+import { Tour } from '../types/types'
 
 export default {
   props: ['tours'],
@@ -24,25 +25,22 @@ export default {
       cities: [],
     };
   },
-
   computed: {
-    computedCities() {
-      // this.tours.forEach((tour) => {
-      //   const query = tour.city;
-      //   axios
-      //     .get(
-      //       `https://api.unsplash.com/photos/random?client_id=xd8-hxjJkd6lN_mRyI12i38m5gozrXDZw4SaZVkmBes&query=${query}`,
-      //     )
-      //     .then((response) => {
-      //       this.cities.push({ city: tour.city, img: response.data.urls.regular });
-      //     })
-      //     .catch((err) => console.log(err));
-      // });
-      // console.log(this.cities);
+    computedCities(): Tour[] {
+      this.tours.forEach((tour: Object) => {
+        const query = tour.city;
+        axios
+          .get(
+            `https://api.unsplash.com/photos/random?client_id=xd8-hxjJkd6lN_mRyI12i38m5gozrXDZw4SaZVkmBes&query=${query}`,
+          )
+          .then((response) => {
+            this.cities.push({ city: tour.city, img: response.data.urls.regular });
+          })
+          .catch((err) => console.log(err));
+      });
       return this.cities;
     },
     backgroundImage(url) {
-      console.log('rendering background');
       return `background-image: url("${url}");`;
     },
   },
