@@ -19,7 +19,6 @@
     "mongoose": "^6.5.2",
     "morgan": "^1.10.0",
     "stripe": "^10.7.0",
-    "tsc": "^2.0.4",
     "uuid": "^8.3.2"
   },
   "devDependencies": {

@@ -1,5 +1,5 @@
 <template>
-  <div v-if="this.computedCities.length > 0" id="carousel-container">
+  <div v-if="computedCities.length > 0" id="carousel-container">
     <h1>Get beneath the surface of these destinations</h1>
     <div id="image-carousel">
       <div
@@ -15,36 +15,56 @@
 </template>
 
 <script lang="ts">
-import axios from 'axios';
-import { Tour } from '../types/types'
+import axios from "axios";
+import { Tour } from "../types/types";
+import { defineComponent } from "vue";
 
-export default {
-  props: ['tours'],
+type City = {
+  city: string;
+  img: string;
+};
+
+export default defineComponent({
+  props: {
+    tours: {
+      type: Array as () => Tour[],
+      required: true,
+    },
+  },
   data() {
     return {
-      cities: [],
+      cities: [] as string[],
     };
   },
   computed: {
-    computedCities(): Tour[] {
-      this.tours.forEach((tour: Object) => {
+    computedCities(): City[] {
+      this.tours.forEach((tour: Tour) => {
+        const computedCities = [];
         const query = tour.city;
         axios
           .get(
-            `https://api.unsplash.com/photos/random?client_id=xd8-hxjJkd6lN_mRyI12i38m5gozrXDZw4SaZVkmBes&query=${query}`,
+            `https://api.unsplash.com/photos/random?client_id=xd8-hxjJkd6lN_mRyI12i38m5gozrXDZw4SaZVkmBes&query=${query}`
           )
           .then((response) => {
-            this.cities.push({ city: tour.city, img: response.data.urls.regular });
+            computedCities.push({
+              city: tour.city,
+              img: response.data.urls.regular,
+            });
           })
           .catch((err) => console.log(err));
       });
-      return this.cities;
+      return this.computedCities;
     },
-    backgroundImage(url) {
+    // backgroundImage(url: string) {
+    //   return `background-image: url("${url}");`;
+    // },
+  },
+  methods: {
+    backgroundImage(url: string) {
       return `background-image: url("${url}");`;
     },
   },
-};
+});
 </script>
 
 <style scoped>

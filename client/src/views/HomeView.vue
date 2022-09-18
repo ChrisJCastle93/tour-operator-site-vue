@@ -2,38 +2,34 @@
 <template>
   <div class="home">
     <div id="header">
-      <h1>Unforgettable<br>experiences.</h1>
+      <h1>Unforgettable<br />experiences.</h1>
       <SearchInput />
     </div>
     <div id="container">
-      <TourCard
-        v-for="tour in filteredTours"
-        :key="tour._id"
-        :tour="tour"
-      />
+      <TourCard v-for="tour in filteredTours" :key="tour._id" :tour="tour" />
     </div>
-    <div id="tour-carousel">
+    <!-- <div id="tour-carousel">
       <ImageCarousel :tours="tours" />
-    </div>
+    </div> -->
     <UspCard />
     <Reviews />
   </div>
 </template>
 
 <script>
-import TourCard from '../components/TourCard.vue';
-import SearchInput from '../components/SearchInput.vue';
-import UspCard from '../components/UspCard.vue';
-import ImageCarousel from '../components/ImageCarousel.vue';
-import Reviews from '../components/Reviews.vue';
+import TourCard from "../components/TourCard.vue";
+import SearchInput from "../components/SearchInput.vue";
+import UspCard from "../components/UspCard.vue";
+// import ImageCarousel from "../components/ImageCarousel.vue";
+import Reviews from "../components/Reviews.vue";
 
 export default {
-  name: 'HomeView',
+  name: "HomeView",
   components: {
     TourCard,
     SearchInput,
     UspCard,
-    ImageCarousel,
+    // ImageCarousel,
     Reviews,
   },
   computed: {
@@ -42,15 +38,19 @@ export default {
     },
     filteredTours() {
       // eslint-disable-next-line max-len
-      return this.$store.state.tours.filter((tour) => tour.title.toLowerCase().includes(this.$store.state.searchInput.toLowerCase()));
+      return this.$store.state.tours.filter((tour) =>
+        tour.title
+          .toLowerCase()
+          .includes(this.$store.state.searchInput.toLowerCase())
+      );
     },
     cart() {
       return this.$store.state.cart;
     },
   },
   created() {
-    this.$store.dispatch('fetchTours'); // fetches all tours to populate homepage
-    this.$store.dispatch('fetchCart');
+    this.$store.dispatch("fetchTours"); // fetches all tours to populate homepage
+    this.$store.dispatch("fetchCart");
   },
 };
 </script>
