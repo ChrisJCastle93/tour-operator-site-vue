@@ -1,8 +1,10 @@
-<script>
+<script lang="ts">
+import { defineComponent } from "vue";
+
 import CartItem from "../components/CartItem.vue";
 import checkoutService from "../../services/CheckoutService";
 
-export default {
+export default defineComponent({
   components: {
     CartItem,
   },
@@ -13,10 +15,10 @@ export default {
   },
   computed: {
     foundBooking() {
-      return this.$store.state.foundBooking[0];
+      return this.$store.state.orderfinder.foundBooking[0];
     },
   },
-};
+});
 </script>
 
 <template>

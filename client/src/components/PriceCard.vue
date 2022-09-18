@@ -25,13 +25,18 @@
 }
 </style>
 
-<script>
-import { defineComponent } from "vue";
+<script lang="ts">
+import { defineComponent } from "@vue/runtime-core";
 import { NCard, NButton, NIcon } from "naive-ui";
 import { HeartOutline as CashIcon } from "@vicons/ionicons5";
 
 export default defineComponent({
-  props: ["price"],
+  props: {
+    price: {
+      type: Number,
+      required: true,
+    },
+  },
   components: {
     NCard,
     NButton,
@@ -39,8 +44,8 @@ export default defineComponent({
     CashIcon,
   },
   methods: {
-    addToCart() {
-      this.$store.dispatch("addToCart", this.$store.state.selectedTour);
+    addToCart(): void {
+      this.$store.dispatch("addToCart", this.$store.state.tours.selectedTour);
     },
   },
 });

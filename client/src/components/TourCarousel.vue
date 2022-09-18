@@ -16,14 +16,20 @@ img {
 }
 </style>
 
-<script>
-import { NCarousel } from 'naive-ui';
+<script lang="ts">
+import { defineComponent } from "@vue/runtime-core";
+import { NCarousel } from "naive-ui";
 
-export default {
-  name: 'TourCarousel',
-  props: ['img'],
+export default defineComponent({
+  name: "TourCarousel",
+  props: {
+    img: {
+      type: String,
+      required: true,
+    },
+  },
   components: {
     NCarousel,
   },
-};
+});
 </script>

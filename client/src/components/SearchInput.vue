@@ -9,24 +9,24 @@
   </form>
 </template>
 
-<script>
-import { defineComponent } from 'vue';
-import { NInput } from 'naive-ui';
+<script lang="ts">
+import { defineComponent } from "@vue/runtime-core";
+import { NInput } from "naive-ui";
 
 export default defineComponent({
   components: {
     NInput,
   },
   computed: {
-    searchInput() {
+    searchInput(): string {
       return this.$store.state.searchInput;
     },
   },
   methods: {
-    updateSearchInput(e) {
-      this.$store.dispatch('updateSearchInput', e);
+    updateSearchInput(e: string): void {
+      this.$store.dispatch("updateSearchInput", e);
     },
-    onSubmit() {
+    onSubmit(): void {
       this.$router.push(`/search?query=${this.searchInput}`);
     },
   },

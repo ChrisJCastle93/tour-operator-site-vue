@@ -1,9 +1,9 @@
-// import { Store } from "@/store"; // path to store file
-// import { Router } from "@/router"; // path to store file
+import { Store } from "./store/index";
+import { Router } from "./router/index";
 
-// declare module "@vue/runtime-core" {
-//   interface ComponentCustomProperties {
-//     $store: Store;
-//     $router: Router;
-//   }
-// }
+declare module "@vue/runtime-core" {
+  interface ComponentCustomProperties {
+    $store: Store;
+    $router: Router;
+  }
+}

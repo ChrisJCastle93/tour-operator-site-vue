@@ -2,7 +2,10 @@
   <div id="usp-container">
     <div id="card-container">
       <div id="column-one">
-        <img src="https://cdn-icons-png.flaticon.com/128/628/628576.png" alt="free" />
+        <img
+          src="https://cdn-icons-png.flaticon.com/128/628/628576.png"
+          alt="free"
+        />
       </div>
       <div id="column-two">
         <h2>Free Cancellation</h2>
@@ -11,7 +14,10 @@
     </div>
     <div id="card-container">
       <div id="column-one">
-        <img src="https://cdn-icons-png.flaticon.com/128/628/628576.png" alt="free" />
+        <img
+          src="https://cdn-icons-png.flaticon.com/128/628/628576.png"
+          alt="free"
+        />
       </div>
       <div id="column-two">
         <h2>Free Cancellation</h2>
@@ -20,7 +26,10 @@
     </div>
     <div id="card-container">
       <div id="column-one">
-        <img src="https://cdn-icons-png.flaticon.com/128/628/628576.png" alt="free" />
+        <img
+          src="https://cdn-icons-png.flaticon.com/128/628/628576.png"
+          alt="free"
+        />
       </div>
       <div id="column-two">
         <h2>Free Cancellation</h2>
@@ -29,10 +38,6 @@
     </div>
   </div>
 </template>
-
-<script>
-export default {};
-</script>
 
 <style scoped>
 img {

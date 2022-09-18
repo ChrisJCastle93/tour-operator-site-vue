@@ -10,5 +10,8 @@ interface Tour {
   fullDescription: string;
   reviews: Object[];
 }
+interface CartItem {
+  
+}
 
-export { Tour };
+export { Tour, CartItem };

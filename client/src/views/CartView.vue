@@ -19,24 +19,30 @@
     </div>
   </div>
 </template>
-<script>
+<script lang="ts">
+import { defineComponent } from "vue";
 import CartItem from "../components/CartItem.vue";
-// eslint-disable-next-line import/extensions
 import checkoutService from "../../services/CheckoutService";
+import { cartItem } from "../types/types";
 
-export default {
-  created() {
+export default defineComponent({
+  created(): void {
     this.$store.dispatch("fetchCart");
   },
   methods: {
-    async onSubmit(e) {
+    async onSubmit(e: Event): Promise<void> {
+      const { name, email } = e.target as EventTarget & {
+        name: { value: string };
+        email: { value: string };
+      };
+
       const orderId = await checkoutService.createOrder({
-        name: e.target.name.value,
-        email: e.target.email.value,
+        name: name.value,
+        email: email.value,
         cart: this.cart,
         total: this.cartTotal,
       });
-      console.log(orderId);
+
       checkoutService.createCheckoutSession(this.cartTotal, orderId);
     },
   },
@@ -45,13 +51,13 @@ export default {
   },
   computed: {
     cart() {
-      return this.$store.state.cart;
+      return this.$store.state.cart.cart;
     },
-    cartTotal() {
+    cartTotal(): number {
       return this.cart.reduce((acc, item) => acc + item.price * item.qty, 0);
     },
   },
-};
+});
 </script>
 
 <style scoped>

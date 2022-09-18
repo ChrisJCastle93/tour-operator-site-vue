@@ -13,6 +13,8 @@
 </template>
 
 <script lang="ts">
+import { defineComponent } from "vue";
+
 import { NSpin } from "naive-ui";
 import TourService from "../../services/TourService";
 import TourCard from "../components/TourCard.vue";
@@ -29,17 +31,17 @@ export default defineComponent({
     };
   },
   computed: {
-    searchQuery(): any {
+    searchQuery(): unknown {
       return this.$route.query.query;
     },
     tours(): any {
-      return this.$store.state.tours;
+      return this.$store.state.tours.tours;
     },
     isLoading(): boolean {
       return this.loadStatus;
     },
     tourLength(): number {
-      return this.$store.state.tours.length;
+      return this.$store.state.tours.tours.length;
     },
   },
   created(): void {

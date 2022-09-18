@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <div v-if="computedCities.length > 0" id="carousel-container">
     <h1>Get beneath the surface of these destinations</h1>
     <div id="image-carousel">
@@ -91,4 +91,4 @@ h1 {
   width: 200px;
   margin-right: 20px;
 }
-</style>
+</style> -->

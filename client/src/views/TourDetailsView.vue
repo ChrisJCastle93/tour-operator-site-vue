@@ -5,74 +5,61 @@
       {{ selectedTour[0].title }}
     </h1>
     <TourCarousel :img="img" />
-    <br>
+    <br />
     <div id="bodycontainer">
       <div id="left-col">
         <h3 v-if="selectedTour[0]">
           {{ selectedTour[0].summary }}
         </h3>
-        <br>
+        <br />
         <h2>Highlights</h2>
         <div v-if="selectedTour[0]">
-          <div
-            v-for="(highlight, index) in selectedTour[0].highlights"
-            :key="index"
-          >
-            • {{ highlight }}
-          </div>
+          <div v-for="(highlight, index) in selectedTour[0].highlights" :key="index">• {{ highlight }}</div>
         </div>
-        <br>
+        <br />
         <h2>Full Description</h2>
         <h4 v-if="selectedTour[0]">
           {{ selectedTour[0].fullDescription }}
         </h4>
-        <div
-          v-if="selectedTour[0]"
-        >
-          <TourReview
-            v-for="(review, index) in selectedTour[0].reviews"
-            :key="`${index}`"
-            :review="review"
-          />
+        <div v-if="selectedTour[0]">
+          <TourReview v-for="(review, index) in selectedTour[0].reviews" :key="`${index}`" :review="review" />
         </div>
       </div>
       <div>
-        <PriceCard
-          v-if="selectedTour[0]"
-          class="sticky"
-          :price="selectedTour[0].price"
-        />
+        <PriceCard v-if="selectedTour[0]" class="sticky" :price="selectedTour[0].price" />
       </div>
     </div>
   </div>
 </template>
 
-<script>
-import TourCarousel from '../components/TourCarousel.vue';
-import PriceCard from '../components/PriceCard.vue';
-import TourReview from '../components/TourReview.vue';
+<script lang="ts">
+import { defineComponent } from "vue";
 
-export default {
-  name: 'TourDetailsView',
+import TourCarousel from "../components/TourCarousel.vue";
+import PriceCard from "../components/PriceCard.vue";
+import TourReview from "../components/TourReview.vue";
+
+export default defineComponent({
+  name: "TourDetailsView",
   components: {
     TourCarousel,
     PriceCard,
     TourReview,
   },
-  props: ['id'],
+  props: ["id"],
   computed: {
     selectedTour() {
-      console.log(this.$store.state.selectedTour);
-      return this.$store.state.selectedTour;
+      console.log(this.$store.state.tours.selectedTour);
+      return this.$store.state.tours.selectedTour;
     },
     img() {
-      return this.$store.state.selectedTour ? this.$store.state.selectedTour[0].images[0] : '';
+      return this.$store.state.tours.selectedTour ? this.$store.state.tours.selectedTour[0].images[0] : "";
     },
   },
   created() {
-    this.$store.dispatch('fetchTour', this.id);
+    this.$store.dispatch("fetchTour", this.id);
   },
-};
+});
 </script>
 
 <style scoped>

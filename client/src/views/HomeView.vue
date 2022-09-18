@@ -16,14 +16,16 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import { defineComponent } from "vue";
 import TourCard from "../components/TourCard.vue";
 import SearchInput from "../components/SearchInput.vue";
 import UspCard from "../components/UspCard.vue";
 // import ImageCarousel from "../components/ImageCarousel.vue";
 import Reviews from "../components/Reviews.vue";
+import { Tour } from "../types/types";
 
-export default {
+export default defineComponent({
   name: "HomeView",
   components: {
     TourCard,
@@ -33,15 +35,14 @@ export default {
     Reviews,
   },
   computed: {
-    tours() {
-      return this.$store.state.tours;
+    tours(): Tour[] {
+      return this.$store.state.tours.tours;
     },
     filteredTours() {
-      // eslint-disable-next-line max-len
-      return this.$store.state.tours.filter((tour) =>
+      return this.$store.state.tours.tours.filter((tour) =>
         tour.title
           .toLowerCase()
-          .includes(this.$store.state.searchInput.toLowerCase())
+          .includes(this.$store.state.search.searchInput.toLowerCase())
       );
     },
     cart() {
@@ -52,7 +53,7 @@ export default {
     this.$store.dispatch("fetchTours"); // fetches all tours to populate homepage
     this.$store.dispatch("fetchCart");
   },
-};
+});
 </script>
 
 <style scoped>
