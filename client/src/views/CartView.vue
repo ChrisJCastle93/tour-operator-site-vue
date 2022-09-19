@@ -12,7 +12,12 @@
           <input type="text" id="name" name="name" placeholder="Name" />
         </label>
         <label for="email">
-          <input type="text" id="email" name="email" placeholder="email address" />
+          <input
+            type="text"
+            id="email"
+            name="email"
+            placeholder="email address"
+          />
         </label>
         <button type="submit">checkout</button>
       </form>
@@ -23,7 +28,7 @@
 import { defineComponent } from "vue";
 import CartItem from "../components/CartItem.vue";
 import checkoutService from "../../services/CheckoutService";
-import { cartItem } from "../types/types";
+import { CartItem as CartItemType } from "../types/types";
 
 export default defineComponent({
   created(): void {
@@ -50,11 +55,14 @@ export default defineComponent({
     CartItem,
   },
   computed: {
-    cart() {
+    cart(): CartItemType[] {
       return this.$store.state.cart.cart;
     },
     cartTotal(): number {
-      return this.cart.reduce((acc, item) => acc + item.price * item.qty, 0);
+      return this.cart.reduce(
+        (acc: number, item: CartItemType) => acc + item.price * item.qty,
+        0
+      );
     },
   },
 });

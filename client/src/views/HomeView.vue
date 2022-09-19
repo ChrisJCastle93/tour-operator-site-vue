@@ -8,9 +8,6 @@
     <div id="container">
       <TourCard v-for="tour in filteredTours" :key="tour._id" :tour="tour" />
     </div>
-    <!-- <div id="tour-carousel">
-      <ImageCarousel :tours="tours" />
-    </div> -->
     <UspCard />
     <Reviews />
   </div>
@@ -21,9 +18,8 @@ import { defineComponent } from "vue";
 import TourCard from "../components/TourCard.vue";
 import SearchInput from "../components/SearchInput.vue";
 import UspCard from "../components/UspCard.vue";
-// import ImageCarousel from "../components/ImageCarousel.vue";
 import Reviews from "../components/Reviews.vue";
-import { Tour } from "../types/types";
+import { Tour, CartItem } from "../types/types";
 
 export default defineComponent({
   name: "HomeView",
@@ -31,25 +27,24 @@ export default defineComponent({
     TourCard,
     SearchInput,
     UspCard,
-    // ImageCarousel,
     Reviews,
   },
   computed: {
     tours(): Tour[] {
       return this.$store.state.tours.tours;
     },
-    filteredTours() {
-      return this.$store.state.tours.tours.filter((tour) =>
+    filteredTours(): Tour[] {
+      return this.$store.state.tours.tours.filter((tour: Tour) =>
         tour.title
           .toLowerCase()
           .includes(this.$store.state.search.searchInput.toLowerCase())
       );
     },
-    cart() {
+    cart(): CartItem[] {
       return this.$store.state.cart;
     },
   },
-  created() {
+  created(): void {
     this.$store.dispatch("fetchTours"); // fetches all tours to populate homepage
     this.$store.dispatch("fetchCart");
   },

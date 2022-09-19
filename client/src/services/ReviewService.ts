@@ -1,5 +1,5 @@
 import axios from "axios";
-import store from "../src/store/index";
+import store from "../store/index";
 
 class Service {
   constructor() {

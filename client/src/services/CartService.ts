@@ -1,14 +1,13 @@
 class LocalStorageService {
-  addToLocalStorage = (key, value) => {
+  addToLocalStorage = (key: string, value: unknown): void => {
     localStorage.setItem(key, JSON.stringify(value));
   };
 
-  getFromLocalStorage = (key) => {
+  getFromLocalStorage = (key: string) => {
     const cart = localStorage.getItem(key);
     if (!cart) {
-      localStorage.setItem('cart', JSON.stringify([]));
+      localStorage.setItem("cart", JSON.stringify([]));
       return [];
-      // eslint-disable-next-line no-else-return
     } else {
       const parsedCart = JSON.parse(cart);
       return parsedCart;
@@ -18,5 +17,4 @@ class LocalStorageService {
 
 const cartService = new LocalStorageService();
 
-// eslint-disable-next-line import/prefer-default-export
 export { cartService };

@@ -1,4 +1,4 @@
-import { cartService } from "../../../../services/CartService";
+import { cartService } from "../../../services/CartService";
 
 export const actions = {
   fetchCart({ commit }) {
@@ -21,14 +21,14 @@ export const actions = {
     newCart.forEach((item) => {
       if (item.id == cartProduct.id) {
         item.qty += 1;
-        localStorage.setItem("cart", JSON.stringify(newCart));
+        cartService.addToLocalStorage("cart", JSON.stringify(newCart));
         cartUpdated = true;
       }
     });
 
     if (!cartUpdated) {
       newCart.push(cartProduct);
-      localStorage.setItem("cart", JSON.stringify(newCart));
+      cartService.addToLocalStorage("cart", JSON.stringify(newCart));
     }
 
     commit("SET_CART", newCart);

@@ -14,7 +14,12 @@
         <br />
         <h2>Highlights</h2>
         <div v-if="selectedTour[0]">
-          <div v-for="(highlight, index) in selectedTour[0].highlights" :key="index">• {{ highlight }}</div>
+          <div
+            v-for="(highlight, index) in selectedTour[0].highlights"
+            :key="index"
+          >
+            • {{ highlight }}
+          </div>
         </div>
         <br />
         <h2>Full Description</h2>
@@ -22,11 +27,19 @@
           {{ selectedTour[0].fullDescription }}
         </h4>
         <div v-if="selectedTour[0]">
-          <TourReview v-for="(review, index) in selectedTour[0].reviews" :key="`${index}`" :review="review" />
+          <TourReview
+            v-for="(review, index) in selectedTour[0].reviews"
+            :key="`${index}`"
+            :review="review"
+          />
         </div>
       </div>
       <div>
-        <PriceCard v-if="selectedTour[0]" class="sticky" :price="selectedTour[0].price" />
+        <PriceCard
+          v-if="selectedTour[0]"
+          class="sticky"
+          :price="selectedTour[0].price"
+        />
       </div>
     </div>
   </div>
@@ -38,6 +51,7 @@ import { defineComponent } from "vue";
 import TourCarousel from "../components/TourCarousel.vue";
 import PriceCard from "../components/PriceCard.vue";
 import TourReview from "../components/TourReview.vue";
+import { Tour } from "../types/types";
 
 export default defineComponent({
   name: "TourDetailsView",
@@ -46,17 +60,23 @@ export default defineComponent({
     PriceCard,
     TourReview,
   },
-  props: ["id"],
-  computed: {
-    selectedTour() {
-      console.log(this.$store.state.tours.selectedTour);
-      return this.$store.state.tours.selectedTour;
-    },
-    img() {
-      return this.$store.state.tours.selectedTour ? this.$store.state.tours.selectedTour[0].images[0] : "";
+  props: {
+    id: {
+      type: String,
+      required: true,
     },
   },
-  created() {
+  computed: {
+    selectedTour(): Tour[] {
+      return this.$store.state.tours.selectedTour;
+    },
+    img(): string {
+      return this.$store.state.tours.selectedTour
+        ? this.$store.state.tours.selectedTour[0].images[0]
+        : "";
+    },
+  },
+  created(): void {
     this.$store.dispatch("fetchTour", this.id);
   },
 });

@@ -1,23 +1,14 @@
 [✅] Convert BE to TypeScript
 
-[ ] Convert FE to TypeScript
-
-[ ] Add some tests
-
-[ ] Switch to Tailwind
-
-[ ] Make Responsive
-
-[ ] Convert to Composition API
+[✅] Convert FE to TypeScript
 
 [✅] Refactor store and router into modules
 
-[ ] Make the store Type safe
+[ ] Add some tests
 
-NEXT: 
+[ ] Style and Make Mobile Responsive
 
-- Add Types to Views
-- Add Types to Services
+[ ] Convert to Composition API
 
 LATER REFACTORING: 
 

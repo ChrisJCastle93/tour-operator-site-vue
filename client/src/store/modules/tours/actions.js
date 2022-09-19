@@ -1,4 +1,4 @@
-import TourService from "../../../../services/TourService";
+import TourService from "../../../services/TourService";
 
 export const actions = {
   fetchTours({ commit }) {

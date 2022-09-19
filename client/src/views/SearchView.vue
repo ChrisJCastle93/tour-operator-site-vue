@@ -14,12 +14,13 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-
 import { NSpin } from "naive-ui";
 import TourService from "../../services/TourService";
 import TourCard from "../components/TourCard.vue";
+import { Tour } from "../types/types";
+import { LocationQueryValue } from "vue-router";
+import { AxiosResponse, AxiosError } from "axios";
 
-import { defineComponent } from "vue";
 export default defineComponent({
   components: {
     NSpin,
@@ -31,10 +32,10 @@ export default defineComponent({
     };
   },
   computed: {
-    searchQuery(): unknown {
+    searchQuery(): LocationQueryValue | LocationQueryValue[] {
       return this.$route.query.query;
     },
-    tours(): any {
+    tours(): Tour[] {
       return this.$store.state.tours.tours;
     },
     isLoading(): boolean {
@@ -46,11 +47,11 @@ export default defineComponent({
   },
   created(): void {
     TourService.searchTours(this.searchQuery)
-      .then((response: any): void => {
+      .then((response: AxiosResponse): void | PromiseLike<void> => {
         this.loadStatus = false;
         this.$store.dispatch("updateTours", response.data);
       })
-      .catch((err: any): void => console.log(err));
+      .catch((err: AxiosError): void => console.log(err));
   },
 });
 </script>
