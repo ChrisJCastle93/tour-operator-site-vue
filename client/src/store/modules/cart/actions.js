@@ -3,6 +3,7 @@ import { cartService } from "../../../services/CartService";
 export const actions = {
   fetchCart({ commit }) {
     const cart = cartService.getFromLocalStorage("cart");
+    console.log("typeof cart in actions", Array.isArray(cart));
     if (!cart.length) {
       commit("SET_CART", []);
     } else {

@@ -15,7 +15,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { NSpin } from "naive-ui";
-import TourService from "../../services/TourService";
+import TourService from "../services/TourService";
 import TourCard from "../components/TourCard.vue";
 import { Tour } from "../types/types";
 import { LocationQueryValue } from "vue-router";

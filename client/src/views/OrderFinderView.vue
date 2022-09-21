@@ -2,7 +2,7 @@
 import { defineComponent } from "vue";
 
 import CartItem from "../components/CartItem.vue";
-import checkoutService from "../../services/CheckoutService";
+import checkoutService from "../services/CheckoutService";
 
 type InputForm = {
   name: string;
@@ -34,11 +34,7 @@ export default defineComponent({
     </FormKit>
     <div id="column-container" v-if="foundBooking">
       <p>Booking Number: {{ foundBooking.id }}</p>
-      <div
-        class="cartItem"
-        v-for="(item, index) in foundBooking.products"
-        :key="index"
-      >
+      <div class="cartItem" v-for="(item, index) in foundBooking.products" :key="index">
         <CartItem :item="item" />
       </div>
     </div>

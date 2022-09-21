@@ -143,7 +143,7 @@
 
 <script lang="ts">
 import { defineComponent } from "@vue/runtime-core";
-import ReviewService from "../../services/ReviewService";
+import ReviewService from "../services/ReviewService";
 
 export default defineComponent({
   name: "ReviewsCarousel",
