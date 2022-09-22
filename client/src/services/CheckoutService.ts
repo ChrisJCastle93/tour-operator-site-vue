@@ -9,12 +9,10 @@ class Service {
   }
 
   findOrder(name, reference) {
-    console.log("finding order");
     this.service
       .post("/find-order", { name, id: reference })
       .then((response) => {
         console.log(response.data);
-        console.log("UPDATING STATE");
         store.dispatch("updateFoundBooking", response.data);
       })
       .catch((error) => console.log(error));

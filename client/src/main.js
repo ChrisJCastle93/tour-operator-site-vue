@@ -7,6 +7,4 @@ import "flowbite";
 import router from "./router";
 import store from "./store/index";
 
-console.log("STORE IN MAIN", store);
-
 createApp(App).use(plugin, defaultConfig).use(store).use(router).mount("#app");

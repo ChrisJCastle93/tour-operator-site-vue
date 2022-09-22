@@ -4,15 +4,19 @@
 
 [✅] Refactor store and router into modules
 
-[ ] Add some tests - Thurs
+[ ] Add some tests - Weekend
 
-[ ] Style and Make Mobile Responsive - Weekend
+[ ] Style and Make Mobile Responsive - Next Week
 
 [ ] Convert to Composition API - Next Week
 
+[ ] Convert Services to TypeScript 
+
+BUGS:
+
+- Add Stripe secret key to the .env file in Storage
+
 LATER REFACTORING: 
 
-- cart not adding to local storage atm?
-- fix add to cart
-- Refactor localstorage service so the logic happens in Vuex and the service only adds to local storage. Vuex action will need to get from local storage, set up the cart, and add to local storage. localStorage should be source of truth.
-- General REFACTORING
+- Ensure 
+

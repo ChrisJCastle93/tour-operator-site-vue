@@ -59,9 +59,6 @@ export default defineComponent({
       return this.$store.state.cart.cart;
     },
     cartTotal(): number {
-      // console.log("CART: ", this.cart);
-      console.log("CART: cart type ", typeof this.cart);
-      console.log("CART is array: ", Array.isArray(this.cart));
       return this.cart.reduce(
         (acc: number, item: CartItemType) => acc + item.price * item.qty,
         0
