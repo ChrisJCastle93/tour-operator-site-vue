@@ -35,20 +35,22 @@ export default defineComponent({
     this.$store.dispatch("fetchCart");
   },
   methods: {
-    async onSubmit(e: Event): Promise<void> {
+    onSubmit(e: Event): void {
       const { name, email } = e.target as EventTarget & {
         name: { value: string };
         email: { value: string };
       };
 
-      const orderId = await checkoutService.createOrder({
+      const orderId = checkoutService.createOrder({
         name: name.value,
         email: email.value,
         cart: this.cart,
         total: this.cartTotal,
       });
 
-      checkoutService.createCheckoutSession(this.cartTotal, orderId);
+      if (orderId) {
+        checkoutService.createCheckoutSession(this.cartTotal, orderId);
+      }
     },
   },
   components: {

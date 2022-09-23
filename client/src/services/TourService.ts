@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios, { AxiosResponse } from "axios";
 import { Tour } from "../types/types";
 
 const apiClient = axios.create({
@@ -19,7 +19,7 @@ export default {
     return apiClient.get(`/tours/${id}`);
   },
 
-  searchTours(query: string): Promise<Tour[]> {
+  searchTours(query: string): Promise<AxiosResponse> {
     return apiClient.get(`/tours?query=${query}`);
   },
 };

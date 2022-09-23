@@ -18,7 +18,6 @@ import { NSpin } from "naive-ui";
 import TourService from "../services/TourService";
 import TourCard from "../components/TourCard.vue";
 import { Tour } from "../types/types";
-import { LocationQueryValue } from "vue-router";
 import { AxiosResponse, AxiosError } from "axios";
 
 export default defineComponent({
@@ -32,8 +31,8 @@ export default defineComponent({
     };
   },
   computed: {
-    searchQuery(): LocationQueryValue | LocationQueryValue[] {
-      return this.$route.query.query;
+    searchQuery(): string | undefined {
+      return this.$route.query.query?.toString();
     },
     tours(): Tour[] {
       return this.$store.state.tours.tours;
@@ -46,12 +45,14 @@ export default defineComponent({
     },
   },
   created(): void {
-    TourService.searchTours(this.searchQuery)
-      .then((response: AxiosResponse): void | PromiseLike<void> => {
-        this.loadStatus = false;
-        this.$store.dispatch("updateTours", response.data);
-      })
-      .catch((err: AxiosError): void => console.log(err));
+    if (this.searchQuery) {
+      TourService.searchTours(this.searchQuery)
+        .then((response: AxiosResponse): void => {
+          this.loadStatus = false;
+          this.$store.dispatch("updateTours", response.data);
+        })
+        .catch((err: AxiosError): void => console.log(err));
+    }
   },
 });
 </script>

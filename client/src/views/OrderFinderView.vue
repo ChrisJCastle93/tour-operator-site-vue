@@ -34,7 +34,11 @@ export default defineComponent({
     </FormKit>
     <div id="column-container" v-if="foundBooking">
       <p>Booking Number: {{ foundBooking.id }}</p>
-      <div class="cartItem" v-for="(item, index) in foundBooking.products" :key="index">
+      <div
+        class="cartItem"
+        v-for="(item, index) in foundBooking.products"
+        :key="index"
+      >
         <CartItem :item="item" />
       </div>
     </div>

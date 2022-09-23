@@ -1,14 +1,17 @@
-import axios from "axios";
+import { Review } from "@/types/types";
+import axios, { AxiosInstance } from "axios";
 import store from "../store/index";
 
 class Service {
+  service: AxiosInstance;
+
   constructor() {
     this.service = axios.create({
       baseURL: "http://localhost:5005/api/reviews",
     });
   }
 
-  getReviews() {
+  getReviews(): void {
     this.service
       .get("/")
       .then((response) => {
@@ -17,7 +20,7 @@ class Service {
       .catch((error) => console.log(error));
   }
 
-  postReview(review) {
+  postReview(review: Review): void {
     this.service
       .post("/new", review)
       .then(() => {

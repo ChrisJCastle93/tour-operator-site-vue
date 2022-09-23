@@ -1,31 +1,33 @@
-import axios from "axios";
+import axios, { AxiosInstance } from "axios";
 import store from "../store/index";
+import { Order } from "../types/types";
 
 class Service {
+  service: AxiosInstance;
+
   constructor() {
     this.service = axios.create({
       baseURL: "http://localhost:5005/api/checkout",
     });
   }
 
-  findOrder(name, reference) {
+  findOrder(name: string, reference: string): void {
     this.service
       .post("/find-order", { name, id: reference })
       .then((response) => {
-        console.log(response.data);
         store.dispatch("updateFoundBooking", response.data);
       })
       .catch((error) => console.log(error));
   }
 
-  createOrder(order: Order) {
+  createOrder(order: Order): string | void {
     this.service
       .post("/create-order", order)
-      .then((response) => response.data)
+      .then((response) => response.data.toString())
       .catch((error) => console.log(error));
   }
 
-  createCheckoutSession(cartTotal: number, orderId: string) {
+  createCheckoutSession(cartTotal: number, orderId: string): string | void {
     this.service
       .post("/create-checkout-session", {
         cartTotal: cartTotal.toFixed(2),

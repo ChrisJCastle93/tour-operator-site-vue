@@ -14,6 +14,7 @@ interface Tour {
   _id: string;
 }
 interface CartItem {
+  _id: string;
   title: string;
   city: string;
   images: string[];
@@ -39,14 +40,16 @@ interface Review {
 }
 
 interface Order {
-  id: string;
-  products: Tour[];
-  paid: {
+  id?: string;
+  products?: Tour[];
+  paid?: {
     type: string;
     default: boolean;
   };
   name: string;
   email: string;
+  cart: CartItem[];
+  total: number;
 }
 
-export { Tour, CartItem };
+export { Tour, CartItem, Order, Review };

@@ -1,11 +1,12 @@
+import { CartItem } from "../types/types";
 class LocalStorageService {
-  addToLocalStorage = (key, value) => {
-    let cart = localStorage.getItem(key);
-    cart = cart ? JSON.parse(cart) : [];
+  addToLocalStorage = (key: string, value: CartItem): CartItem[] => {
+    const cart: string | null = localStorage.getItem(key);
+    const parsedCart: CartItem[] = cart ? JSON.parse(cart) : [];
 
     let cartUpdated = false;
 
-    cart.forEach((item) => {
+    parsedCart.forEach((item: CartItem) => {
       if (item._id == value._id) {
         item.qty += 1;
         cartUpdated = true;
@@ -13,18 +14,18 @@ class LocalStorageService {
     });
 
     if (!cartUpdated) {
-      cart.push(value);
+      parsedCart.push(value);
     }
 
-    localStorage.setItem(key, JSON.stringify(cart));
+    localStorage.setItem(key, JSON.stringify(parsedCart));
 
-    return cart;
+    return parsedCart;
   };
 
-  getFromLocalStorage = (key) => {
-    let cart = localStorage.getItem(key);
-    cart = cart ? JSON.parse(cart) : [];
-    return cart;
+  getFromLocalStorage = (key: string): CartItem[] | [] => {
+    const cart = localStorage.getItem(key);
+    const parsedCart = cart ? JSON.parse(cart) : [];
+    return parsedCart;
   };
 }
 
