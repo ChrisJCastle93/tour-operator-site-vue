@@ -4,13 +4,13 @@
 
 [✅] Refactor store and router into modules
 
+[✅] Convert Services to TypeScript 
+
 [ ] Add some tests - Weekend
 
 [ ] Style and Make Mobile Responsive - Next Week
 
 [ ] Convert to Composition API - Next Week
-
-[ ] Convert Services to TypeScript 
 
 BUGS:
 
