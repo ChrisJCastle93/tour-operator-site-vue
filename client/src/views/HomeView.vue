@@ -2,7 +2,16 @@
 <template>
   <div class="home">
     <div id="header">
-      <h1>Unforgettable<br />experiences.</h1>
+      <h1
+        class="mb-4 text-5xl text-white font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white"
+      >
+        Unforgettable experiences.
+      </h1>
+      <p
+        class="mb-6 text-lg font-bold text-white lg:text-2xl sm:px-16 xl:px-48 dark:text-gray-400"
+      >
+        Locally-led tours and activities in 100+ countries.
+      </p>
       <SearchInput />
     </div>
     <div id="container">
@@ -37,7 +46,9 @@ export default defineComponent({
       return this.$store.state.tours.tours.filter((tour: Tour) =>
         tour.title
           .toLowerCase()
-          .includes(this.$store.state.search.searchInput.toLowerCase())
+          .includes(
+            this.$store.state.search.searchInput.toString().toLowerCase()
+          )
       );
     },
     cart(): CartItem[] {
@@ -52,27 +63,20 @@ export default defineComponent({
 </script>
 
 <style scoped>
-h1 {
-  color: white;
-  line-height: 1em;
-  font-size: 5em;
-  font-weight: bold;
-  filter: drop-shadow(2px 2px 0.2rem black);
-}
 #container {
   padding: 50px;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 20px;
 }
 #header {
-  background-image: url("https://cdn.ventrata.com/image/upload/s--Fm46deUd--/ar_3,c_fill,dpr_2.0,q_auto,w_1500/v1654739183/gosqgnbz6p9mz1jbf2xv.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    url("https://cdn.ventrata.com/image/upload/s--Fm46deUd--/ar_3,c_fill,dpr_2.0,q_auto,w_1500/v1654739183/gosqgnbz6p9mz1jbf2xv.jpg");
   background-repeat: no-repeat;
   background-position: left;
   background-size: cover;
   position: relative;
-  height: 400px;
-  padding: 80px;
+  height: 700px;
   display: flex;
   flex-direction: column;
   justify-content: center;
