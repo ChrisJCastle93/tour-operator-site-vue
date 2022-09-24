@@ -20,3 +20,21 @@ LATER REFACTORING:
 
 - Ensure 
 
+
+ @chakra-ui/vue
+ @emotion/css
+ @rushstack/eslint-patch
+ @vicons/ionicons5
+ @vue/cli-plugin-unit-jest
+ @vue/composition-api
+ @vue/eslint-config-airbnb
+ @vue/test-utils
+ core-js
+ dotenv
+ install
+ jest
+ npm
+ pexels
+ test-utils
+ vite-jest
+ vue-property-decorator
