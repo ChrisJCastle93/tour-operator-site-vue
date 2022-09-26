@@ -7,6 +7,7 @@
     "allowJs": true,
     "jsx": "preserve",
     "moduleResolution": "node",
+    "resolveJsonModule": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
@@ -14,17 +15,13 @@
     "useDefineForClassFields": true,
     "sourceMap": true,
     "baseUrl": ".",
-    "types": ["webpack-env", "jest", "module", "vite/client", "@types/jest", "@testing-library/jest-dom"],
+    "types": ["webpack-env", "jest", "module", "vite/client", "@types/jest", "@testing-library/jest-dom", "./jest-setup.ts"],
     "outDir": "build",
     "paths": {
       "@": ["src/*"]
     },
     "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
   },
-  "include": ["vite.config.*", "env.d.ts", "src/**/*", "src/**/*.vue"],
-  "exclude": [
-    "node_modules",
-    "build/**/*",
-    "src/store/**/*"
-  ]
+  "include": ["vite.config.*", "env.d.ts", "src/**/*", "src/**/**/*", "src/**/*/*", "src/**/*.vue"],
+  "exclude": ["node_modules", "build/**/*", "src/store/**/*"]
 }
