@@ -1,3 +1,13 @@
+<script setup lang="ts">
+import NavBar from "./components/NavBar.vue";
+
+import { reactive } from 'vue'
+
+const counter = reactive({
+  count: 2
+})
+</script>
+
 <template>
   <div id="main">
     <nav>
@@ -14,21 +24,13 @@
       <router-view />
     </div>
     <footer>
-      <p>Footer goes here.</p>
+      <p>{{ counter.count }} </p>
     </footer>
   </div>
 </template>
-<script>
-import NavBar from "./components/NavBar.vue";
-
-export default {
-  components: {
-    NavBar,
-  },
-};
-</script>
 
 <style scoped>
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

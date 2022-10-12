@@ -1,27 +1,18 @@
 {
   "compilerOptions": {
-    "target": "esnext",
-    "useUnknownInCatchVariables": false,
-    "module": "esnext",
-    "strict": true,
-    "allowJs": true,
-    "jsx": "preserve",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "forceConsistentCasingInFileNames": true,
+    "target": "ESNext",
     "useDefineForClassFields": true,
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "strict": true,
+    "jsx": "preserve",
     "sourceMap": true,
-    "baseUrl": ".",
-    "types": ["webpack-env", "jest", "module", "vite/client", "@types/jest", "@testing-library/jest-dom", "./jest-setup.ts"],
-    "outDir": "build",
-    "paths": {
-      "@": ["src/*"]
-    },
-    "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "lib": ["ESNext", "DOM"],
+    "skipLibCheck": true
   },
-  "include": ["vite.config.*", "env.d.ts", "src/**/*", "src/**/**/*", "src/**/*/*", "src/**/*.vue"],
-  "exclude": ["node_modules", "build/**/*", "src/store/**/*"]
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
+  "references": [{ "path": "./tsconfig.node.json" }]
 }
