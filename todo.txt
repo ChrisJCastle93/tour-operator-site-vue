@@ -6,6 +6,8 @@
 
 [✅] Convert Services to TypeScript 
 
+[✅] Learned Composition API
+
 [ ] Convert to Composition API - Next Week
 
 [ ] Add some tests
