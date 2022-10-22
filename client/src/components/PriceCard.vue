@@ -13,14 +13,6 @@
 </template>
 
 <style scoped>
-.n-card {
-  max-width: 300px;
-  text-align: left;
-}
-
-.link {
-  text-decoration: none;
-}
 </style>
 
 <script lang="ts">

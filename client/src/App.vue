@@ -10,21 +10,12 @@ const counter = reactive({
 
 <template>
   <div id="main">
-    <nav>
-      <a href="/">
-        <img
-          width="250"
-          alt="logo"
-          src="https://cdn.ventrata.com/image/upload/s--eqruQi84--/b_transparent,c_pad,g_west,h_90,w_540/v1652707045/zk9fm987mb5dmwf6r7pm.png"
-        />
-      </a>
       <NavBar />
-    </nav>
     <div id="middle">
       <router-view />
     </div>
     <footer>
-      <p>{{ counter.count }} </p>
+      <p>Testing the composition API: {{ counter.count }} </p>
     </footer>
   </div>
 </template>
