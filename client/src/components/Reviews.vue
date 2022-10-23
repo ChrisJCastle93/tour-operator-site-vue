@@ -1,34 +1,89 @@
-<!-- eslint-disable prettier/prettier -->
 <template>
   <div id="carousel-container">
-    <h3 class="text-2xl font-extrabold mt-12 mb-12 dark:text-white">What our travellers are saying</h3>
+    <h3 class="text-2xl font-extrabold mt-12 mb-12 dark:text-white">
+      What our travellers are saying
+    </h3>
     <div class="grid rounded-lg md:mb-12 md:grid-cols-4">
       <div v-for="(review, index) in reviews" :key="index" class="review-card">
-        <figure class="flex flex-col justify-center items-center p-8 text-center bg-white w-full max-w-sm bg-white rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
-          <blockquote class="mx-auto max-w-2xl text-gray-500 dark:text-gray-400">
-            <h3 class="text-lg font-semibold text-gray-900 dark:text-white">"{{ review.review }}"</h3>
+        <figure
+          class="flex flex-col justify-center items-center p-8 text-center bg-white w-full max-w-sm bg-white rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700"
+        >
+          <blockquote
+            class="mx-auto max-w-2xl text-gray-500 dark:text-gray-400"
+          >
+            <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
+              "{{ review.review }}"
+            </h3>
             <div class="flex items-center justify-center mt-2.5 mb-5">
-              <svg v-if="review.rating > 0.9" aria-hidden="true" class="w-5 h-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <svg
+                v-if="review.rating > 0.9"
+                aria-hidden="true"
+                class="w-5 h-5 text-yellow-300"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
                 <title>First star</title>
-                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                <path
+                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                />
               </svg>
-              <svg v-if="review.rating > 1.9" aria-hidden="true" class="w-5 h-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <svg
+                v-if="review.rating > 1.9"
+                aria-hidden="true"
+                class="w-5 h-5 text-yellow-300"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
                 <title>Second star</title>
-                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                <path
+                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                />
               </svg>
-              <svg v-if="review.rating > 2.9" aria-hidden="true" class="w-5 h-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <svg
+                v-if="review.rating > 2.9"
+                aria-hidden="true"
+                class="w-5 h-5 text-yellow-300"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
                 <title>Third star</title>
-                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                <path
+                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                />
               </svg>
-              <svg v-if="review.rating > 3.9" aria-hidden="true" class="w-5 h-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <svg
+                v-if="review.rating > 3.9"
+                aria-hidden="true"
+                class="w-5 h-5 text-yellow-300"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
                 <title>Fourth star</title>
-                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                <path
+                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                />
               </svg>
-              <svg v-if="review.rating > 4.9" aria-hidden="true" class="w-5 h-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <svg
+                v-if="review.rating > 4.9"
+                aria-hidden="true"
+                class="w-5 h-5 text-yellow-300"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
                 <title>Fifth star</title>
-                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                <path
+                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                />
               </svg>
-              <span class="bg-red-100 text-red-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-red-200 dark:text-red-800 ml-3">{{ review.rating }} </span>
+              <span
+                class="bg-red-100 text-red-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-red-200 dark:text-red-800 ml-3"
+                >{{ review.rating }}
+              </span>
             </div>
             <p class="my-4 font-light">
               {{ review.name }}
@@ -37,101 +92,287 @@
         </figure>
       </div>
     </div>
-    <button type="button" class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900" @click="open">Leave a review</button>
-    <div id="popup-modal" class="hidden w-50 h-50 bg-white fixed m-20 z-50 md:inset-0 bg-white rounded-lg shadow">
-      <div v-if="reviewSubmitted" class="flex items-center h-full justify-center overflow-x-hidden">
+    <button
+      type="button"
+      class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
+      @click="open"
+    >
+      Leave a review
+    </button>
+    <div
+      id="popup-modal"
+      class="hidden w-50 h-50 bg-white fixed m-20 z-50 md:inset-0 bg-white rounded-lg shadow"
+    >
+      <div
+        v-if="reviewSubmitted"
+        class="flex items-center h-full justify-center overflow-x-hidden"
+      >
         <p>Thanks for submitting your review.</p>
-        <button type="button" class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white" data-modal-toggle="authentication-modal" @click="close">
-          <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+        <button
+          type="button"
+          class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white"
+          data-modal-toggle="authentication-modal"
+          @click="close"
+        >
+          <svg
+            aria-hidden="true"
+            class="w-5 h-5"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+              clip-rule="evenodd"
+            />
           </svg>
           <span class="sr-only">Close modal</span>
         </button>
       </div>
-      <div v-else tabindex="-1" aria-hidden="true" class="flex items-center justify-center overflow-x-hidden">
+      <div
+        v-else
+        tabindex="-1"
+        aria-hidden="true"
+        class="flex items-center justify-center overflow-x-hidden"
+      >
         <div class="relative p-4 w-full h-full md:h-auto">
           <!-- Modal content -->
           <div class="relative">
-            <h3 class="text-3xl p-1.5 efont-bold dark:text-white">Leave a Review</h3>
-            <button type="button" class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white" data-modal-toggle="authentication-modal" @click="close">
-              <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+            <h3 class="text-3xl p-1.5 efont-bold dark:text-white">
+              Leave a Review
+            </h3>
+            <button
+              type="button"
+              class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white"
+              data-modal-toggle="authentication-modal"
+              @click="close"
+            >
+              <svg
+                aria-hidden="true"
+                class="w-5 h-5"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                  clip-rule="evenodd"
+                />
               </svg>
               <span class="sr-only">Close modal</span>
             </button>
             <div class="py-6 px-6 lg:px-8">
               <form class="space-y-6" action="#" @submit.prevent="onSubmit">
                 <div>
-                  <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your name</label>
-                  <input id="name" type="text" name="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Joe Bloggs" required />
+                  <label
+                    for="name"
+                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                    >Your name</label
+                  >
+                  <input
+                    id="name"
+                    type="text"
+                    name="name"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                    placeholder="Joe Bloggs"
+                    required
+                  />
                 </div>
-                <label for="tours" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Select an option</label>
-                <select id="tours" name="tours" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500">
+                <label
+                  for="tours"
+                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400"
+                  >Select an option</label
+                >
+                <select
+                  id="tours"
+                  name="tours"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500"
+                >
                   <option selected>Choose a tour</option>
-                  <option v-for="tour in tours" :key="tour._id" :value="tour._id">
+                  <option
+                    v-for="tour in tours"
+                    :key="tour._id"
+                    :value="tour._id"
+                  >
                     {{ tour.title }}
                   </option>
                 </select>
                 <div>
-                  <label for="review" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your Review</label>
-                  <textarea id="review" rows="10" name="review" placeholder="write here" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required />
+                  <label
+                    for="review"
+                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                    >Your Review</label
+                  >
+                  <textarea
+                    id="review"
+                    rows="10"
+                    name="review"
+                    placeholder="write here"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                    required
+                  />
                 </div>
-                <h3 class="mb-4 font-semibold text-gray-900 dark:text-white">Rating</h3>
-                <ul class="items-center w-full text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 sm:flex dark:bg-gray-700 dark:border-gray-600 dark:text-white">
-                  <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                <h3 class="mb-4 font-semibold text-gray-900 dark:text-white">
+                  Rating
+                </h3>
+                <ul
+                  class="items-center w-full text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 sm:flex dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                >
+                  <li
+                    class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600"
+                  >
                     <div class="flex items-center pl-3">
-                      <input id="rating" type="radio" value="1" name="rating" class="w-4 h-4 text-red-600 bg-gray-100 border-gray-300 focus:ring-red-500 dark:focus:ring-red-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" />
-                      <label for="rating" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">* </label>
+                      <input
+                        id="rating"
+                        type="radio"
+                        value="1"
+                        name="rating"
+                        class="w-4 h-4 text-red-600 bg-gray-100 border-gray-300 focus:ring-red-500 dark:focus:ring-red-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                      />
+                      <label
+                        for="rating"
+                        class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300"
+                        >*
+                      </label>
                     </div>
                   </li>
-                  <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                  <li
+                    class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600"
+                  >
                     <div class="flex items-center pl-3">
-                      <input id="rating" type="radio" value="2" name="rating" class="w-4 h-4 text-red-600 bg-gray-100 border-gray-300 focus:ring-red-500 dark:focus:ring-red-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" />
-                      <label for="rating" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">**</label>
+                      <input
+                        id="rating"
+                        type="radio"
+                        value="2"
+                        name="rating"
+                        class="w-4 h-4 text-red-600 bg-gray-100 border-gray-300 focus:ring-red-500 dark:focus:ring-red-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                      />
+                      <label
+                        for="rating"
+                        class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300"
+                        >**</label
+                      >
                     </div>
                   </li>
-                  <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                  <li
+                    class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600"
+                  >
                     <div class="flex items-center pl-3">
-                      <input id="rating" type="radio" value="3" name="rating" class="w-4 h-4 text-red-600 bg-gray-100 border-gray-300 focus:ring-red-500 dark:focus:ring-red-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" />
-                      <label for="rating" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">***</label>
+                      <input
+                        id="rating"
+                        type="radio"
+                        value="3"
+                        name="rating"
+                        class="w-4 h-4 text-red-600 bg-gray-100 border-gray-300 focus:ring-red-500 dark:focus:ring-red-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                      />
+                      <label
+                        for="rating"
+                        class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300"
+                        >***</label
+                      >
                     </div>
                   </li>
                   <li class="w-full dark:border-gray-600">
                     <div class="flex items-center pl-3">
-                      <input id="rating" type="radio" value="4" name="rating" class="w-4 h-4 text-red-600 bg-gray-100 border-gray-300 focus:ring-red-500 dark:focus:ring-red-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" />
-                      <label for="rating" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">****</label>
+                      <input
+                        id="rating"
+                        type="radio"
+                        value="4"
+                        name="rating"
+                        class="w-4 h-4 text-red-600 bg-gray-100 border-gray-300 focus:ring-red-500 dark:focus:ring-red-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                      />
+                      <label
+                        for="rating"
+                        class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300"
+                        >****</label
+                      >
                     </div>
                   </li>
                   <li class="w-full dark:border-gray-600">
                     <div class="flex items-center pl-3">
-                      <input id="rating" type="radio" value="5" name="rating" class="w-4 h-4 text-red-600 bg-gray-100 border-gray-300 focus:ring-red-500 dark:focus:ring-red-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" />
-                      <label for="rating" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300"
+                      <input
+                        id="rating"
+                        type="radio"
+                        value="5"
+                        name="rating"
+                        class="w-4 h-4 text-red-600 bg-gray-100 border-gray-300 focus:ring-red-500 dark:focus:ring-red-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                      />
+                      <label
+                        for="rating"
+                        class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300"
                         ><div class="flex items-center">
-                          <svg aria-hidden="true" class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                          <svg
+                            aria-hidden="true"
+                            class="w-5 h-5 text-yellow-400"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
                             <title>First star</title>
-                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                            <path
+                              d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                            />
                           </svg>
-                          <svg aria-hidden="true" class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                          <svg
+                            aria-hidden="true"
+                            class="w-5 h-5 text-yellow-400"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
                             <title>Second star</title>
-                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                            <path
+                              d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                            />
                           </svg>
-                          <svg aria-hidden="true" class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                          <svg
+                            aria-hidden="true"
+                            class="w-5 h-5 text-yellow-400"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
                             <title>Third star</title>
-                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                            <path
+                              d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                            />
                           </svg>
-                          <svg aria-hidden="true" class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                          <svg
+                            aria-hidden="true"
+                            class="w-5 h-5 text-yellow-400"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
                             <title>Fourth star</title>
-                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                            <path
+                              d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                            />
                           </svg>
-                          <svg aria-hidden="true" class="w-5 h-5 text-yellow-400 dark:text-gray-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                          <svg
+                            aria-hidden="true"
+                            class="w-5 h-5 text-yellow-400 dark:text-gray-500"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
                             <title>Fifth star</title>
-                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                            <path
+                              d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                            />
                           </svg></div
                       ></label>
                     </div>
                   </li>
                 </ul>
-                <button type="submit" class="w-full text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">Post Review</button>
+                <button
+                  type="submit"
+                  class="w-full text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800"
+                >
+                  Post Review
+                </button>
               </form>
             </div>
           </div>
@@ -141,56 +382,59 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "@vue/runtime-core";
+<script setup lang="ts">
+import { useStore } from "vuex";
+import { useRouter } from "vue-router";
+import { computed } from "vue";
 import ReviewService from "../services/ReviewService";
 
-export default defineComponent({
-  name: "ReviewsCarousel",
-  computed: {
-    reviews() {
-      return this.$store.state.reviews.reviews;
-    },
-    reviewSubmitted() {
-      return this.$store.state.reviews.reviewSubmitted;
-    },
-    tours() {
-      return this.$store.state.tours.tours;
-    },
-  },
-  created() {
-    ReviewService.getReviews();
-  },
-  methods: {
-    onSubmit(e: Event): void {
-      const { name, review, rating, tours } = e.target as EventTarget & {
-        name: { value: string };
-        review: { value: string };
-        rating: { value: string };
-        tours: { value: string };
-      };
+ReviewService.getReviews();
 
-      const obj = {
-        name: name.value,
-        review: review.value,
-        rating: rating.value,
-        tour: tours.value,
-      };
-      ReviewService.postReview(obj);
-    },
-    postReview(): void {
-      this.$router.push({ name: "PostReview" });
-    },
-    open(): void {
-      const el = document.getElementById("popup-modal");
-      if (el) el.classList.remove("hidden");
-    },
-    close() {
-      const el = document.getElementById("popup-modal");
-      if (el) el.classList.add("hidden");
-    },
-  },
+const store = useStore();
+const router = useRouter();
+
+const reviews = computed(() => {
+  return store.state.reviews.reviews;
 });
+
+const reviewSubmitted = computed(() => {
+  return store.state.reviews.reviewSubmitted;
+});
+
+const tours = computed(() => {
+  return store.state.tours.tours;
+});
+
+function onSubmit(e: Event): void {
+  const { name, review, rating, tours } = e.target as EventTarget & {
+    name: { value: string };
+    review: { value: string };
+    rating: { value: string };
+    tours: { value: string };
+  };
+
+  const obj = {
+    name: name.value,
+    review: review.value,
+    rating: rating.value,
+    tour: tours.value,
+  };
+  ReviewService.postReview(obj);
+}
+
+function postReview(): void {
+  router.push({ name: "PostReview" });
+}
+
+function open(): void {
+  const el = document.getElementById("popup-modal");
+  if (el) el.classList.remove("hidden");
+}
+
+function close() {
+  const el = document.getElementById("popup-modal");
+  if (el) el.classList.add("hidden");
+}
 </script>
 
 <style scoped>

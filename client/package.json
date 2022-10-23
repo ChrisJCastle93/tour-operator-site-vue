@@ -14,8 +14,11 @@
     "axios": "^1.1.2",
     "flowbite": "^1.5.3",
     "naive-ui": "^2.33.5",
+    "swiper": "^8.4.4",
     "vue": "^3.2.37",
+    "vue-carousel": "^0.18.0",
     "vue-router": "^4.1.5",
+    "vueperslides": "^3.5.1",
     "vuex": "^4.0.2"
   },
   "devDependencies": {

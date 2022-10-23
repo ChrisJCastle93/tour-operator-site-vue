@@ -1,35 +1,36 @@
 <template>
-  <n-carousel>
-    <img class="carousel-img" :src="img" object-fit="cover" alt="tourimage" />
-    <img class="carousel-img" :src="img" object-fit="cover" alt="tourimage" />
-    <img class="carousel-img" :src="img" object-fit="cover" alt="tourimage" />
-  </n-carousel>
+  <vueper-slides class="no-shadow" :bullets="false">
+    <vueper-slide v-for="(slide, i) in slides" :key="i" :image="slide.src">
+    </vueper-slide>
+  </vueper-slides>
 </template>
 
-<style scoped>
-img {
-  width: 100%;
-}
+<script setup lang="ts">
+import { VueperSlides, VueperSlide } from "vueperslides";
+import { toRefs, reactive, computed } from "vue";
 
-.n-carousel {
-  border-radius: 50px;
+import "vueperslides/dist/vueperslides.css";
+
+const props = defineProps<{
+  img: string;
+}>();
+
+const img = computed(() => {
+  return props.img;
+});
+
+const slides = [
+  {
+    src: img,
+  },
+  {
+    src: img,
+  },
+];
+</script>
+
+<style>
+.vueperslides__arrow {
+  color: blue;
 }
 </style>
-
-<script lang="ts">
-import { defineComponent } from "@vue/runtime-core";
-import { NCarousel } from "naive-ui";
-
-export default defineComponent({
-  name: "TourCarousel",
-  props: {
-    img: {
-      type: String,
-      required: true,
-    },
-  },
-  components: {
-    NCarousel,
-  },
-});
-</script>

@@ -7,6 +7,7 @@ export const actions = {
   },
 
   addToCart({ commit }, selectedTour) {
+    console.log("addToCart action");
     selectedTour[0].qty = 1;
     const updatedCart = cartService.addToLocalStorage("cart", selectedTour[0]);
     commit("SET_CART", updatedCart);
