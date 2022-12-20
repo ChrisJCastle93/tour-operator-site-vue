@@ -3,7 +3,7 @@
     <h3>{{ item.title }}</h3>
     <div id="right-col">
       <p>{{ item.qty }}x</p>
-      <p>€ {{item.price}}</p>
+      <p>€ {{ item.price }}</p>
     </div>
   </div>
 </template>

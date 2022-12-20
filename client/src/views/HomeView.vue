@@ -1,84 +1,54 @@
 <template>
-  <div class="home">
-    <div id="header">
-      <h1>Unforgettable<br>experiences.</h1>
-      <SearchInput />
+  <div>
+    <HeroSection />
+    <UspSection />
+    <div id="product-container">
+      <div id="product-carousel">
+        <TourCard v-for="tour in tours" :key="tour.id" :tour="tour" />
+      </div>
     </div>
-    <div id="container">
-      <TourCard v-for="tour in filteredTours" :key="tour.id" :tour="tour" />
-    </div>
-    <div id="tour-carousel">
-      <ImageCarousel :tours="tours"/>
-    </div>
-    <UspCard />
-    <Reviews />
+    <TestimonialSection />
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
+@import "../assets/variables.scss";
 
-h1 {
-  color: white;
-  line-height: 1em;
-  font-size: 5em;
-  font-weight:bold;
-  filter: drop-shadow(2px 2px 0.2rem black);
-}
-
-#container {
-  padding: 50px;
-  display: grid;
-      grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-}
-
-#header {
-  background-image: url('https://cdn.ventrata.com/image/upload/s--Fm46deUd--/ar_3,c_fill,dpr_2.0,q_auto,w_1500/v1654739183/gosqgnbz6p9mz1jbf2xv.jpg');
-    background-repeat: no-repeat;
-    background-position: left;
-    background-size: cover;
-    position: relative;
-    height: 400px;
-    padding: 80px;
+#product-container {
+  width: 90%;
+  margin: 25px auto;
+  #product-carousel {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border-bottom: 4px solid red;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+  }
 }
 </style>
 
 <script>
-import TourCard from '../components/TourCard.vue';
-import SearchInput from '../components/SearchInput.vue';
-import UspCard from '../components/UspCard.vue';
-import ImageCarousel from '../components/ImageCarousel.vue';
-import Reviews from '../components/Reviews.vue';
+import TourCard from "../components/TourCard.vue";
+import TestimonialSection from "../components/TestimonialSection.vue";
+import UspSection from "../components/UspSection.vue";
+import HeroSection from "../components/HeroSection.vue";
+import { useStore } from "@/stores/index";
 
 export default {
-  name: 'HomeView',
+  name: "HomeView",
   components: {
+    HeroSection,
     TourCard,
-    SearchInput,
-    UspCard,
-    ImageCarousel,
-    Reviews,
+    UspSection,
+    TestimonialSection,
   },
-  created() {
-    this.$store.dispatch('fetchTours'); // fetches all tours to populate homepage
-    this.$store.dispatch('fetchCart');
+  setup() {
+    const store = useStore();
+    store.fetchTours();
+    return { store };
   },
   computed: {
     tours() {
-      return this.$store.state.tours;
-    },
-    filteredTours() {
-      return this.$store.state.tours
-        .filter((tour) => tour.title.toLowerCase()
-          .includes(this.$store.state.searchInput.toLowerCase()));
-    },
-    cart() {
-      return this.$store.state.cart;
+      const tours = this.store.tours;
+      return tours.sort((a, b) => b.summary.length - a.summary.length);
     },
   },
 };

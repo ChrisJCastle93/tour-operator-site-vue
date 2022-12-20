@@ -1,17 +1,17 @@
-import axios from 'axios';
+import axios from "axios";
 
 const apiClient = axios.create({
-  baseURL: 'http://localhost:5005/api',
+  baseURL: "http://localhost:5005/api",
   withCredentials: false,
   headers: {
-    Accept: 'application/json',
-    'Content-Type': 'application/json',
+    Accept: "application/json",
+    "Content-Type": "application/json",
   },
 });
 
 export default {
   getTours() {
-    return apiClient.get('/tours');
+    return apiClient.get("/tours");
   },
 
   getTour(id) {

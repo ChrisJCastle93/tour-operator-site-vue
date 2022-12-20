@@ -1,72 +1,53 @@
 <template>
   <div id="main">
-    <nav>
-      <n-image
-        height="50"
-        src="https://cdn.ventrata.com/image/upload/s--eqruQi84--/b_transparent,c_pad,g_west,h_90,w_540/v1652707045/zk9fm987mb5dmwf6r7pm.png"
-      />
-      <NavBar />
-    </nav>
+    <nav>NAV</nav>
     <div id="middle">
-      <router-view />
+      <router-view></router-view>
     </div>
     <footer>
-      <p>Footer goes here.</p>
+      <span>Wolfy's Adventures</span>
+      <span>Link Goes Here</span>
+      <span>Link Goes Here</span>
+      <span>Link Goes Here</span>
     </footer>
   </div>
 </template>
-<script>
-import NavBar from '@/components/NavBar.vue';
-import { NImage } from 'naive-ui';
 
-export default {
-  components: {
-    NavBar,
-    NImage,
-  },
-};
+<script>
+import { defineComponent } from "vue";
+defineComponent({
+  name: "App",
+  components: {},
+});
 </script>
 
-<style scoped>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-nav {
-  padding: 30px;
-  display: flex;
-  justify-content: space-between;
-}
-
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
-}
-
+<style scoped lang="scss">
+@import "@/assets/variables.scss";
 #main {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
-}
-
-router-view {
-  flex-grow: 1;
+  height: 100vh;
 }
 
 #middle {
   flex: 1 0 auto;
+  padding-bottom: 150px;
+}
+
+nav {
+  background: #d3d3d3;
+  flex-shrink: 0;
 }
 
 footer {
-  background: #D3D3D3;
   flex-shrink: 0;
+  background-color: $lightgray;
+  width: 100%;
+  bottom: 0px;
+  position: fixed;
+}
+
+span {
+  margin: 0 10px 0 0;
 }
 </style>
